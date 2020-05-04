@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="txt1">"Bienvenido/a a la aplicación de Radio online. \n Pulse el botón Continuar. </string>
+    <string name="titulo">"My Radio online  </string>
+    <string name="about">Aplicación creada por: \n Lionel Sanchez (c) 2020</string>
+
+    <string name="buton">Continuar</string>
+
+
+    <string name="item1">Volver al menú principal</string>
+    <string name="item2">Copyright</string>
+    <string name="item3">Versión de la Aplicación</string>
+    <string name="salir_item">Salir de la app</string>
+</resources>
