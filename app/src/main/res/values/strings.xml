@@ -1,14 +1,21 @@
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="txt1">"Bienvenido/a a la aplicación de Radio online. \n Pulse el botón Continuar. </string>
-    <string name="titulo">"My Radio online  </string>
+    <string name="app_name">Radio.es</string>
+    <string name="txt1">"Bienvenido/a a la aplicación de Radio.es. \n Pulse el botón para Continuar. </string>
+    <string name="titulo">"Radio.es </string>
     <string name="about">Aplicación creada por: \n Lionel Sanchez (c) 2020</string>
 
     <string name="buton">Continuar</string>
-
+    <string name="inicioI2">Inicio</string>
+    <string name="Historia">Historia Radio</string>
+    <string name="reproductor">Ver Reproduccion</string>
+    <string name="index">Index</string>
 
     <string name="item1">Volver al menú principal</string>
     <string name="item2">Copyright</string>
     <string name="item3">Versión de la Aplicación</string>
     <string name="salir_item">Salir de la app</string>
+
+    <string name="tv4">Inicios de la radio</string>
+    <string name="tituloIniciosHistoria">HISTORIA DE LA RADIO</string>
+
 </resources>
