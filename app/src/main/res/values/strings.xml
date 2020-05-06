@@ -9,6 +9,8 @@
     <string name="Historia">Historia Radio</string>
     <string name="reproductor">Ver Reproduccion</string>
     <string name="index">Index</string>
+    <string name="b4">Volver</string>
+    <string name="index_historia">Indice de contenido, pulse un elemento de la lista para consultar</string>
 
     <string name="item1">Volver al menú principal</string>
     <string name="item2">Copyright</string>
@@ -16,6 +18,6 @@
     <string name="salir_item">Salir de la app</string>
 
     <string name="tv4">Inicios de la radio</string>
-    <string name="tituloIniciosHistoria">HISTORIA DE LA RADIO</string>
+    <string name="tituloIniciosHistoria">HISTORIA DE LA RADIO, para ir a "Indice", pulsa el boton index</string>
 
 </resources>
