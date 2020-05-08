@@ -33,7 +33,18 @@ public class histotria_radio extends AppCompatActivity implements AdapterView.On
         listaHistoria.setOnItemClickListener(this);
         Bundle extras = getIntent().getExtras();
     }
-
+    public void comments(View v){
+        if (comments.isClickable()){
+            Intent myIntent = new Intent(this, Seccion_Comentarios.class);
+            startActivity(myIntent);
+        }
+    }
+    public void mainP(View v){
+        if (mainP.isClickable()){
+            Intent myIntent = new Intent(this, MainActivity.class);
+            startActivity(myIntent);
+        }
+    }
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(this, "has elegido " + etapas[position], Toast.LENGTH_LONG).show();
