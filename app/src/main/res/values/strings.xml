@@ -18,8 +18,11 @@
     <string name="item2">Copyright</string>
     <string name="item3">Versión de la Aplicación</string>
     <string name="salir_item">Salir de la app</string>
-
+    <string name="tit_comentarios">Bienvenido a la seccion de comentarios, por favor, introduzca su nombre, edad y un comentario</string>
+    <string name="ed_cometario">Introduzca un comentario</string>
+    <string name="ed_nombre">introduzca su nombre</string>
+    <string name="ed_edad">introduzca su edad</string>
     <string name="tv4">Inicios de la radio</string>
-    <string name="tituloIniciosHistoria">Bienvenido/a a la jhistoria de la radio, pulsa un elemento de la lista para consulta</string>
+    <string name="tituloIniciosHistoria">Bienvenido/a a la historia de la radio, pulsa un elemento de la lista para consulta</string>
 
 </resources>
