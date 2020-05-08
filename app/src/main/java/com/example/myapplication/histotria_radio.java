@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,7 +14,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class histotria_radio extends AppCompatActivity implements AdapterView.OnItemClickListener {
-    String[] etapas = {"Inicios", "Evolucion de la Radio","Futuro"};
+    String[] etapas = {"Inicio de la radio", "Evolucion de la Radio","Futuro"};
     Button masinfo,comments,mainP;
     ListView listaHistoria;
     Bundle extras;
@@ -36,12 +37,12 @@ public class histotria_radio extends AppCompatActivity implements AdapterView.On
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(this, "has elegido " + etapas[position], Toast.LENGTH_LONG).show();
+        if (position == 0) {
+            Intent myIntent = new Intent(view.getContext(), iinicios_de_la_radio.class);
+            startActivity(myIntent);
 
+        }
     }
-
-
-
-
 
 
 
