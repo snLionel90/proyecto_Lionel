@@ -9,10 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Seccion_Comentarios"></activity>
-        <activity android:name=".indexHistoria" />
+        <activity android:name=".histotria_radio"></activity>
+        <activity android:name=".Seccion_Comentarios" />
         <activity android:name=".radioplayer" />
-        <activity android:name=".main_historia" />
         <activity android:name=".panelRadio" />
         <activity android:name=".MainActivity">
             <intent-filter>

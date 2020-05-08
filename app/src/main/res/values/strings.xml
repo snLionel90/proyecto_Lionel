@@ -4,20 +4,22 @@
     <string name="titulo">"Radio.es </string>
     <string name="about">Aplicación creada por: \n Lionel Sanchez (c) 2020</string>
 
-    <string name="buton">Continuar</string>
+    <string name="buton">ir a Emisoras</string>
+    <string name="buton2">Historia</string>
+    <string name="buton3">comentarios</string>
     <string name="inicioI2">Inicio</string>
     <string name="Historia">Historia Radio</string>
     <string name="reproductor">Ver Reproduccion</string>
     <string name="index">Index</string>
     <string name="b4">Volver</string>
     <string name="index_historia">Indice de contenido, pulse un elemento de la lista para consultar</string>
-
+    <string name="masInfo">+ Info</string>
     <string name="item1">Volver al menú principal</string>
     <string name="item2">Copyright</string>
     <string name="item3">Versión de la Aplicación</string>
     <string name="salir_item">Salir de la app</string>
 
     <string name="tv4">Inicios de la radio</string>
-    <string name="tituloIniciosHistoria">HISTORIA DE LA RADIO, para ir a "Indice", pulsa el boton index</string>
+    <string name="tituloIniciosHistoria">Bienvenido/a a la jhistoria de la radio, pulsa un elemento de la lista para consulta</string>
 
 </resources>

@@ -6,73 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".panelRadio">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="351dp"
-        android:layout_height="382dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:orientation="vertical"
+    <Button
+        android:id="@+id/buttonInicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
+        android:layout_span="1"
+        android:background="@android:drawable/divider_horizontal_bright"
+        android:onClick="inicioMain"
+        android:text="@string/inicioI2"
+        app:layout_constraintEnd_toStartOf="@+id/buttonHistoria"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listaRadios" />
+
+    <Button
+        android:id="@+id/buttonHistoria"
+        android:layout_width="138dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="86dp"
+        android:layout_marginRight="86dp"
+        android:layout_span="1"
+        android:text="@string/Historia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listaRadios" />
+
+    <ListView
+        android:id="@+id/listaRadios"
+        android:layout_width="314dp"
+        android:layout_height="344dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="53dp"
+        android:layout_marginRight="53dp"
+        android:background="#C9CEEE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ListView
-            android:id="@+id/listaRadios"
-            android:layout_width="290dp"
-            android:layout_height="340dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginLeft="36dp"
-            android:layout_marginTop="16dp"
-            android:background="#C9CEEE"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
-    </LinearLayout>
-
-    <TableLayout
-        android:layout_width="366dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginRight="31dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="69dp">
-
-            <Button
-                android:id="@+id/buttonInicio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_span="1"
-                android:background="@android:drawable/divider_horizontal_bright"
-                android:onClick="inicioMain"
-                android:text="@string/inicioI2" />
-
-            <Button
-                android:id="@+id/buttonHistoria"
-                android:layout_width="138dp"
-                android:layout_height="match_parent"
-                android:layout_span="1"
-                android:background="@android:drawable/ic_dialog_info"
-                android:onClick="Historia"
-                android:text="@string/Historia" />
-
-            <Button
-                android:id="@+id/buttonVerRepro"
-                android:layout_width="141dp"
-                android:layout_height="52dp"
-                android:layout_span="1"
-                android:onClick="verPlayer"
-                android:text="@string/reproductor" />
-        </TableRow>
-    </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

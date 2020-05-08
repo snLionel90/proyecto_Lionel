@@ -11,19 +11,26 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    Button continuar;
+    Button emisoras,hist_radio;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        continuar = findViewById(R.id.button);
-        continuar.setOnClickListener(this);
+        emisoras = findViewById(R.id.buttonERadio);
+        hist_radio=findViewById(R.id.buttonHR);
+        emisoras.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if (continuar.isClickable()) {
+        if (emisoras.isClickable()) {
             Intent intent = new Intent(this, panelRadio.class);
+            startActivity(intent);
+        }
+    }
+    public void hist_radio(View v){
+        if (hist_radio.isClickable()){
+            Intent intent = new Intent(this, histotria_radio.class);
             startActivity(intent);
         }
     }

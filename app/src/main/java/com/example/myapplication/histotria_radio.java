@@ -2,43 +2,50 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Toast;
 
-public class main_historia extends AppCompatActivity {
-    Button index,main;
-    ImageView logo;
+public class histotria_radio extends AppCompatActivity implements AdapterView.OnItemClickListener {
+    String[] etapas = {"Inicios", "Evolucion de la Radio","Futuro"};
+    Button masinfo,comments,mainP;
+    ListView listaHistoria;
+    Bundle extras;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_historia);
-        index=findViewById(R.id.buttonIndex);
-        main=findViewById(R.id.buttonmain);
-        logo = findViewById(R.id.imageViewPortada);
+        setContentView(R.layout.activity_histotria_radio);
+        masinfo = findViewById(R.id.buttonMasInfo);
+        comments = findViewById(R.id.buttonCm);
+        mainP = findViewById(R.id.buttonPort_main);
+        listaHistoria=findViewById(R.id.lista_history);
+
+        ArrayAdapter<String> adaptador;
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, etapas);
+        listaHistoria.setAdapter(adapter);
+        listaHistoria.setOnItemClickListener(this);
+        Bundle extras = getIntent().getExtras();
     }
 
-    public void index (View v){
-        if (index.isClickable()){
-            Intent indice = new Intent(this, indexHistoria.class);
-            startActivity(indice);
-        }
-    }
-    public void main (View v){
-        if (main.isClickable()){
-            Intent indice = new Intent(this,MainActivity.class);
-            startActivity(indice);
-        }
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Toast.makeText(this, "has elegido " + etapas[position], Toast.LENGTH_LONG).show();
+
     }
 
 
 
-    //AREA PARA EL MENU ACTION BAR
+
+
+
+
+
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menus_superior,menu);
         return true;
@@ -47,10 +54,6 @@ public class main_historia extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id=item.getItemId();
-        if (id==R.id.item_salir){
-            Intent intent = new Intent(this,MainActivity.class);
-            startActivity(intent);
-        }
         if (id==R.id.item_creator){
             Toast.makeText(this, "Aplicacion creada por:Lionel Sanchez(c)2020",Toast.LENGTH_LONG).show();
             return true;
@@ -66,4 +69,5 @@ public class main_historia extends AppCompatActivity {
         }
         return  super.onOptionsItemSelected(item);
     }
+
 }
