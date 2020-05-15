@@ -50,7 +50,7 @@ public class histotria_radio extends AppCompatActivity implements AdapterView.On
         Toast.makeText(this, "has elegido " + etapas[position], Toast.LENGTH_LONG).show();
         if (position == 0) {
             Intent myIntent = new Intent(view.getContext(), iinicios_de_la_radio.class);
-            startActivity(myIntent);
+            startActivity(myIntent); // este enlazaria con la pantalla de inicios de la radio
 
         }
     }
