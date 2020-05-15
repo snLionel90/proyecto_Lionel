@@ -4,44 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".iinicios_de_la_radio">
 
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:background="@drawable/mifondo"
-        android:orientation="vertical"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView5"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/Iniciosradio"
-            android:textColor="#D1F5A6"
-            android:textSize="24sp" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="323dp"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="Los primeros antecedentes de la radio datan del siglo XIX, con la invención de la pila voltaica por Alessandro Volta. Desde ese momento se comenzaron a construir los primeros telégrafos, los cuales fueron evolucionando gracias a las aportaciones de Samuel Morse, con el código morse.  En 1876, Graham Bell fue el primer científico británico que descubrió que los sonidos podían ser  escuchados a través de un cable. Pero no fue sino hasta el siglo XX, que Fleming y Fessenden, lograron la transmisión de la voz humana, cuestión que originó el comienzo de ese medio."
-            android:textColor="#FFEB3B"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/textViewTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/Iniciosradio"
+                android:textColor="#D1F5A6"
+                android:textSize="24sp" />
 
-        <Button
-            android:id="@+id/buttonRegresar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/b4" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/buttonRegresar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/b4" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageViewPrimerradio"
+                        android:layout_width="360dp"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/receptor4" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewtextoPrimeros"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|center_horizontal"
+                        android:text="Los primeros antecedentes de la radio datan del siglo XIX, con la invención de la pila voltaica por Alessandro Volta. Desde ese momento se comenzaron a construir los primeros telégrafos, los cuales fueron evolucionando gracias a las aportaciones de Samuel Morse, con el código morse.  En 1876, Graham Bell fue el primer científico británico que descubrió que los sonidos podían ser  escuchados a través de un cable. Pero no fue sino hasta el siglo XX, que Fleming y Fessenden, lograron la transmisión de la voz humana, cuestión que originó el comienzo de ese medio.Durante la década de los años 20 del siglo pasado (1920), solo unos pocos afortunados podían escuchar la radio, la cual estaba compuesta por elementos muy simples, cuando las emisiones fueron a más allá, en cuanto a numero de emisoras, potencia y cobertura, se fue abaratando los costes de producción de la misma, en cuanto las emisoras, solo emitían en AM (Onda Media)  y podía ser recibida con unos receptores muy simples llamados Radio de galena"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+
+                </TableRow>
+
+            </TableLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
