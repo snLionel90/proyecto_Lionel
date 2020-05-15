@@ -53,6 +53,11 @@ public class histotria_radio extends AppCompatActivity implements AdapterView.On
             startActivity(myIntent); // este enlazaria con la pantalla de inicios de la radio
 
         }
+        if (position == 1) {
+            Intent myIntent = new Intent(view.getContext(), evolucion_radio.class);
+            startActivity(myIntent); // este enlazaria con la pantalla de inicios de la radio
+
+        }
 
     }
 
