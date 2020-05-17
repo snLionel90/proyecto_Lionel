@@ -118,8 +118,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@android:drawable/ic_input_add"
             android:onClick="masinfo"
-            android:text="@string/masInfo" />
+            android:text="@string/masInfo"
+            android:textColor="#FFEB3B"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/buttonCm"
