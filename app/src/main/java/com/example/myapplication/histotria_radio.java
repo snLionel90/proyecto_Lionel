@@ -7,16 +7,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Toast;
 
-public class histotria_radio extends AppCompatActivity implements AdapterView.OnItemClickListener {
-    String[] etapas = {"Inicio de la radio", "Evolucion de la Radio","Futuro"};
-    Button masinfo,comments,mainP;
-    ListView listaHistoria;
+public class histotria_radio extends AppCompatActivity {
+
+    Button masinfo,comments,mainP,bt_inicios,bt_evolucion,bt_futuro;
+
     Bundle extras;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +22,25 @@ public class histotria_radio extends AppCompatActivity implements AdapterView.On
         masinfo = findViewById(R.id.buttonMasInfo);
         comments = findViewById(R.id.buttonCm);
         mainP = findViewById(R.id.buttonPort_main);
-        listaHistoria=findViewById(R.id.lista_history);
+        bt_inicios = findViewById(R.id.buttonInicios);
+        bt_evolucion = findViewById(R.id.buttonEvolucion);
+        bt_futuro = findViewById(R.id.buttonFuturo);
 
-        ArrayAdapter<String> adaptador;
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, etapas);
-        listaHistoria.setAdapter(adapter);
-        listaHistoria.setOnItemClickListener(this);
-        Bundle extras = getIntent().getExtras();
     }
+    public void bt_inicios (View v){
+        if (bt_inicios.isClickable()){
+            Intent myIntent = new Intent(this, iinicios_de_la_radio.class);
+            startActivity(myIntent);
+        }
+    }
+    public void bt_evolucion (View v){
+        if (bt_evolucion.isClickable()){
+            Intent myIntent2 = new Intent(this, evolucion_radio.class);
+            startActivity(myIntent2);
+        }
+    }
+
+//Botonera de navegacion
     public void comments(View v){
         if (comments.isClickable()){
             Intent myIntent = new Intent(this, Seccion_Comentarios.class);
@@ -45,23 +53,6 @@ public class histotria_radio extends AppCompatActivity implements AdapterView.On
             startActivity(myIntent);
         }
     }
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(this, "has elegido " + etapas[position], Toast.LENGTH_LONG).show();
-        if (position == 0) {
-            Intent myIntent = new Intent(view.getContext(), iinicios_de_la_radio.class);
-            startActivity(myIntent); // este enlazaria con la pantalla de inicios de la radio
-
-        }
-        if (position == 1) {
-            Intent myIntent = new Intent(view.getContext(), evolucion_radio.class);
-            startActivity(myIntent); // este enlazaria con la pantalla de inicios de la radio
-
-        }
-
-    }
-
-
 
 
     public boolean onCreateOptionsMenu(Menu menu){

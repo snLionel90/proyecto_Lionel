@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class iinicios_de_la_radio extends AppCompatActivity implements View.OnClickListener {
     Button retroceso;
-    ImageView fotoGalena;
+    Bundle extras;
     TextView tv1,tv2;
 
     @Override
@@ -22,11 +22,11 @@ public class iinicios_de_la_radio extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_iinicios_de_la_radio);
         retroceso = findViewById(R.id.buttonRegresar);
-        fotoGalena = findViewById(R.id.imageViewPrimerradio);
+
         tv1 = findViewById(R.id.textViewTitulo);
         tv2 = findViewById(R.id.textViewtextoPrimeros);
         retroceso.setOnClickListener(this);
-
+        Bundle extras = getIntent().getExtras();
     }
 
     @Override
@@ -35,7 +35,6 @@ public class iinicios_de_la_radio extends AppCompatActivity implements View.OnCl
             Intent intent_index  = new Intent(this, histotria_radio.class);
             startActivity(intent_index);
         }
-
     }
 
 

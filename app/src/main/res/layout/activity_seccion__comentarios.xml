@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#CBE3EE"
     tools:context=".Seccion_Comentarios">
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="361dp"
-        android:layout_height="255dp"
+        android:layout_width="352dp"
+        android:layout_height="353dp"
         android:layout_marginStart="37dp"
         android:layout_marginLeft="37dp"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:layout_weight="1"
@@ -40,6 +41,15 @@
             android:inputType="textPersonName" />
 
         <EditText
+            android:id="@+id/editTextApellido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/ed_apellido"
+            android:inputType="textPersonName" />
+
+        <EditText
             android:id="@+id/editTextEdad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,7 +61,7 @@
         <EditText
             android:id="@+id/editTextComentario"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="167dp"
             android:layout_weight="1"
             android:ems="10"
             android:hint="@string/ed_cometario"

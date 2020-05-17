@@ -23,30 +23,87 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/lista_history"
-        android:layout_width="342dp"
-        android:layout_height="230dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginRight="34dp"
+    <TableLayout
+        android:id="@+id/tableLayout2"
+        android:layout_width="345dp"
+        android:layout_height="146dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitulo_historia" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitulo_historia">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/buttonInicios"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_span="0"
+                android:onClick="bt_inicios" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/Iniciosradio"
+                android:textColor="#FFEB3B"
+                android:textSize="24sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/buttonEvolucion"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="bt_evolucion" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/bt_evoluciion_radio"
+                android:textColor="#FFEB3B"
+                android:textSize="24sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/buttonFuturo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/bt_futuro_radio"
+                android:textColor="#FFEB3B"
+                android:textSize="30sp" />
+        </TableRow>
+    </TableLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="348dp"
         android:layout_height="0dp"
         android:layout_marginStart="29dp"
         android:layout_marginLeft="29dp"
-        android:layout_marginTop="15dp"
         android:layout_marginEnd="34dp"
         android:layout_marginRight="34dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lista_history">
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout2">
 
         <Button
             android:id="@+id/buttonPort_main"
@@ -70,6 +127,7 @@
             android:layout_weight="1"
             android:onClick="comments"
             android:text="@string/buton3" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
