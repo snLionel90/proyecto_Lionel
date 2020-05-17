@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -53,7 +54,15 @@ public class histotria_radio extends AppCompatActivity {
             startActivity(myIntent);
         }
     }
-
+    public void masinfo(View v){
+        if (v.getId() == R.id.buttonMasInfo) {
+            Uri Webpage = Uri.parse("https://es.wikipedia.org/wiki/Historia_de_la_radio");
+            Intent intent = new Intent(Intent.ACTION_VIEW, Webpage);
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
+        }
+    }
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menus_superior,menu);
