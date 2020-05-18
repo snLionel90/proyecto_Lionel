@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#0000BCD4"
     tools:context=".radioplayer">
 
     <FrameLayout
@@ -24,8 +25,8 @@
 
     <TableLayout
         android:id="@+id/tabla"
-        android:layout_width="264dp"
-        android:layout_height="62dp"
+        android:layout_width="356dp"
+        android:layout_height="55dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="7dp"
@@ -44,21 +45,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_span="0"
-                android:background="@drawable/boton1" />
+                android:background="@android:drawable/ic_media_pause" />
 
             <Button
                 android:id="@+id/buttonPlay"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="0"
-                android:background="@drawable/boton2" />
+                android:background="@android:drawable/ic_media_play" />
 
             <Button
                 android:id="@+id/buttonReturn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="0"
-                android:background="@android:drawable/ic_menu_revert" />
+                android:background="@android:drawable/ic_menu_revert"
+                android:onClick="regreso" />
+
+            <Button
+                android:id="@+id/buttonSilencio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/ic_lock_silent_mode" />
         </TableRow>
     </TableLayout>
 

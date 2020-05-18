@@ -11,13 +11,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class panelRadio extends AppCompatActivity implements AdapterView.OnItemClickListener, View.OnClickListener {
     String[] radios = {"Los 40CL", "OndaCero", "Cadena Ser", "Onda Madrid","cadena 100", "RNE Radio Nacional","RNE Radio 3","Kiss FM"};
-    //ImageView iv1,iv2,iv3,iv4,iv5,iv6,iv7,iv8,iv9,iv10,iv11,iv12,
     ListView lista;
-    Button inicioMain, Historia;
+    TextView tv_panel;
+    Button inicioMain, Historia, bt_reproductor;
     Bundle extras;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,9 @@ public class panelRadio extends AppCompatActivity implements AdapterView.OnItemC
         setContentView(R.layout.activity_panel_radio);
         inicioMain=findViewById(R.id.buttonInicio);
         Historia=findViewById(R.id.buttonHistoria);
+        bt_reproductor=findViewById(R.id.buttonRepro);
         Historia.setOnClickListener(this);
+        tv_panel = findViewById(R.id.textViewPanel);
         lista=findViewById(R.id.listaRadios);
 
         ArrayAdapter<String> adaptador;
@@ -46,7 +49,12 @@ public class panelRadio extends AppCompatActivity implements AdapterView.OnItemC
             startActivity(intent);
         }
     }
-
+    public void bt_reproductor(View v){
+        if (bt_reproductor.isClickable()){
+            Intent intent = new Intent(this, radioplayer .class);
+            startActivity(intent);
+        }
+    }
 
     //AREA RESERVADA PARA EL ARRAY LIST
     @Override

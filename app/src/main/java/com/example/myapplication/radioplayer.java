@@ -8,37 +8,40 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 public class radioplayer extends AppCompatActivity {
-    Button play,stop,regreso;
+    Button bt_play,bt_stop,bt_regreso,bt_silencio;
     Bundle extras;
+    FrameLayout fm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_radioplayer);
-        play=findViewById(R.id.buttonPlay);
-        stop=findViewById(R.id.buttonStop);
-        regreso=findViewById(R.id.buttonReturn);
-
+        bt_play=findViewById(R.id.buttonPlay);
+        bt_stop=findViewById(R.id.buttonStop);
+        bt_regreso=findViewById(R.id.buttonReturn);
+        bt_silencio = findViewById(R.id.buttonSilencio);
+        fm = findViewById(R.id.frameLayout);
         Bundle extras = getIntent().getExtras();
     }
 
     public void play (View v){
-        if (play.isClickable()){
+        if (bt_play.isClickable()){
 
         }
 
     }
     public void stop (View v){
-        if (play.isClickable()){
+        if (bt_stop.isClickable()){
 
         }
 
     }
     public void regreso (View v){
-        if (regreso.isClickable()){
+        if (bt_regreso.isClickable()){
             Intent ir = new Intent(this,panelRadio.class);
             startActivity(ir);
         }

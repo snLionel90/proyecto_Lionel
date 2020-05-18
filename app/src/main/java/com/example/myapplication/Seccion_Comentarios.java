@@ -2,7 +2,10 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,7 +43,7 @@ public class Seccion_Comentarios extends AppCompatActivity {
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ejecutarServicio("http://192.168.1.138:8080/usuarios_radio/insertar_usuarios.php");
+                ejecutarServicio("http://192.168.1.133:8080/usuarios_radio/insertar_usuarios.php");
 
             }
         });
@@ -50,7 +53,7 @@ public class Seccion_Comentarios extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(), "COmentario enviado correctamente!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Comentario enviado correctamente!", Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
             @Override
@@ -72,5 +75,34 @@ public class Seccion_Comentarios extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
+    //AREA PARA EL MENU ACTION BAR
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menus_superior,menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id=item.getItemId();
+        if (id==R.id.item_salir){
+            Intent intent = new Intent(this,MainActivity.class);
+            startActivity(intent);
+        }
+        if (id==R.id.item_creator){
+            Toast.makeText(this, "Aplicacion creada por:Lionel Sanchez(c)2020",Toast.LENGTH_LONG).show();
+            return true;
+        }
+        if (id==R.id.i_version){
+            Toast.makeText(this, "Version de la aplicacion: 1.0.2020",Toast.LENGTH_LONG).show();
+            return true;
+        }
+        if (id==R.id.salir_it){
+            Toast.makeText(this, "Gracias por utilizar la aplicacion",Toast.LENGTH_LONG).show();
+            finish();
+            return true;
+        }
+        return  super.onOptionsItemSelected(item);
+    }
+
 
 }

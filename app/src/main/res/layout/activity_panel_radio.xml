@@ -4,50 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#68C2CE"
     tools:context=".panelRadio">
 
-    <Button
-        android:id="@+id/buttonInicio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginRight="19dp"
-        android:layout_span="1"
-        android:background="@android:drawable/divider_horizontal_bright"
-        android:onClick="inicioMain"
-        android:text="@string/inicioI2"
-        app:layout_constraintEnd_toStartOf="@+id/buttonHistoria"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listaRadios" />
-
-    <Button
-        android:id="@+id/buttonHistoria"
-        android:layout_width="138dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="86dp"
-        android:layout_marginRight="86dp"
-        android:layout_span="1"
-        android:onClick="onClick"
-        android:text="@string/Historia"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listaRadios" />
-
-    <ListView
-        android:id="@+id/listaRadios"
-        android:layout_width="314dp"
-        android:layout_height="344dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="53dp"
-        android:layout_marginRight="53dp"
-        android:background="#C9CEEE"
+    <TextView
+        android:id="@+id/textViewPanel"
+        android:layout_width="316dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="@string/tv_panel"
+        android:textColor="#3F51B5"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="328dp"
+        android:layout_height="351dp"
+        android:layout_marginTop="2dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPanel">
+
+        <ListView
+            android:id="@+id/listaRadios"
+            android:layout_width="match_parent"
+            android:layout_height="294dp"
+            android:background="#4CAF50" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonInicio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="1"
+                android:background="@android:drawable/ic_menu_revert"
+                android:onClick="inicioMain"
+                android:text="@string/inicioI2" />
+
+            <Button
+                android:id="@+id/buttonHistoria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_span="1"
+                android:background="@android:drawable/ic_dialog_info"
+                android:onClick="onClick"
+                android:text="@string/Historia" />
+
+            <Button
+                android:id="@+id/buttonRepro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="bt_reproductor"
+                android:text="@string/reproductor" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
