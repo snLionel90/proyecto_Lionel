@@ -1,15 +1,14 @@
 <resources>
     <string name="app_name">Radio.es</string>
-    <string name="txt1">"Bienvenido/a a la aplicación de Radio.es. \n Pulse el botón para Continuar. </string>
+    <string name="txt1">"Bienvenido/a a la aplicación de Radio.es. \n Pulse Continuar. </string>
     <string name="titulo">"Radio.es </string>
     <string name="about">Aplicación creada por: \n Lionel Sanchez (c) 2020</string>
 
-    <string name="buton">ir a Emisoras</string>
-    <string name="buton2">Historia</string>
+    <string name="buton">Continuar</string>
+    <string name="tv2">Estas Escuchando:</string>
     <string name="buton3">comentarios</string>
     <string name="inicioI2">Inicio</string>
     <string name="Historia">Historia Radio</string>
-    <string name="Iniciosradio">Inicios de la radio</string>
 
     <string name="reproductor">Ver Reproduccion</string>
     <string name="index">Index</string>
@@ -17,10 +16,10 @@
     <string name="index_historia">Indice de contenido, pulse un elemento de la lista para consultar</string>
     <string name="masInfo">+ Info</string>
 
-    <string name="bt_incios_radio">Ir a Inicios</string>
-    <string name="bt_evoluciion_radio">Ir a Evolucion</string>
-    <string name="bt_futuro_radio">Ir a Futuro</string>
-    <string name="tv_panel">Seleccione una emisora para escuchar</string>
+    <string name="tv_Iniciosradio">Inicios de la radio</string>
+    <string name="tv_evoluciion_radio">Ir a Evolucion</string>
+    <string name="tv_futuro_radio">Ir a Futuro</string>
+    <string name="tv_panel">Seleccione una emisora para escuchar, o ve a historia para ver la evolucion de la radio como medio de comunicacion</string>
     <string name="bt_enviarCom">Enviar Comentario</string>
 
     <string name="item1">Volver al menú principal</string>

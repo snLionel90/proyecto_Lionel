@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/Iniciosradio"
+                android:text="@string/tv_Iniciosradio"
                 android:textColor="#D1F5A6"
                 android:textSize="36sp" />
 

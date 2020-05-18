@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class panelRadio extends AppCompatActivity implements AdapterView.OnItemClickListener, View.OnClickListener {
-    String[] radios = {"Los 40CL", "OndaCero", "Cadena Ser", "Onda Madrid","cadena 100", "RNE Radio Nacional","RNE Radio 3","Kiss FM"};
+    String[] radios = {"Los 40CL", "Rock Fm", "Cadena 100", "Kiss FM","Europa FM", "RNE Radio Nacional","Onda Melodia","Radio 4G"};
     ListView lista;
     TextView tv_panel;
     Button inicioMain, Historia, bt_reproductor;
