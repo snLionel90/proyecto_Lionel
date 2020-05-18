@@ -44,7 +44,6 @@ public class Seccion_Comentarios extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ejecutarServicio("http://192.168.1.133:8080/usuarios_radio/insertar_usuarios.php");
-
             }
         });
     }
