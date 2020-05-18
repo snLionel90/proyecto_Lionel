@@ -18,16 +18,17 @@ public class panelRadio extends AppCompatActivity implements AdapterView.OnItemC
     String[] radios = {"Los 40CL", "Rock Fm", "Cadena 100", "Kiss FM","Europa FM", "RNE Radio Nacional","Onda Melodia","Radio 4G"};
     ListView lista;
     TextView tv_panel;
-    Button inicioMain, Historia, bt_reproductor;
+    Button bt_inicioMain, bt_Historia, bt_reproductor,bt_comments;
     Bundle extras;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_panel_radio);
-        inicioMain=findViewById(R.id.buttonInicio);
-        Historia=findViewById(R.id.buttonHistoria);
+        bt_inicioMain=findViewById(R.id.buttonInicio);
+        bt_Historia=findViewById(R.id.buttonHistoria);
         bt_reproductor=findViewById(R.id.buttonRepro);
-        Historia.setOnClickListener(this);
+        bt_comments = findViewById(R.id.buttonComentario);
+        bt_Historia.setOnClickListener(this);
         tv_panel = findViewById(R.id.textViewPanel);
         lista=findViewById(R.id.listaRadios);
 
@@ -42,9 +43,12 @@ public class panelRadio extends AppCompatActivity implements AdapterView.OnItemC
         Intent intent = new Intent(this, histotria_radio.class);
         startActivity(intent);
     }
-
+    public  void bt_comments(View v){
+        Intent intent = new Intent(this, Seccion_Comentarios.class);
+        startActivity(intent);
+    }
     public void inicioMain(View v){
-        if(inicioMain.isClickable()){
+        if(bt_inicioMain.isClickable()){
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }

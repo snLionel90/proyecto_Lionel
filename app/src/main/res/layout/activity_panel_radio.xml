@@ -9,8 +9,8 @@
 
     <TextView
         android:id="@+id/textViewPanel"
-        android:layout_width="316dp"
-        android:layout_height="62dp"
+        android:layout_width="332dp"
+        android:layout_height="70dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="32dp"
@@ -18,16 +18,20 @@
         android:layout_marginRight="24dp"
         android:text="@string/tv_panel"
         android:textColor="#3F51B5"
-        android:textSize="14sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="328dp"
-        android:layout_height="351dp"
+        android:layout_width="329dp"
+        android:layout_height="404dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="2dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,39 +41,61 @@
             android:id="@+id/listaRadios"
             android:layout_width="match_parent"
             android:layout_height="294dp"
-            android:background="#4CAF50" />
+            android:background="#4CAF50">
 
-        <LinearLayout
+        </ListView>
+
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/buttonInicio"
+            <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_span="1"
-                android:background="@android:drawable/ic_menu_revert"
-                android:onClick="inicioMain"
-                android:text="@string/inicioI2" />
+                android:layout_height="wrap_content">
 
-            <Button
-                android:id="@+id/buttonHistoria"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_span="1"
-                android:background="@android:drawable/ic_dialog_info"
-                android:onClick="onClick"
-                android:text="@string/Historia" />
+                <Button
+                    android:id="@+id/buttonInicio"
+                    android:layout_width="159dp"
+                    android:layout_height="match_parent"
+                    android:layout_span="1"
+                    android:background="@android:drawable/ic_menu_revert"
+                    android:onClick="inicioMain"
+                    android:text="@string/inicioI2" />
 
-            <Button
-                android:id="@+id/buttonRepro"
+                <Button
+                    android:id="@+id/buttonRepro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/stat_notify_voicemail"
+                    android:onClick="bt_reproductor"
+                    android:text="@string/reproductor" />
+            </TableRow>
+
+            <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="bt_reproductor"
-                android:text="@string/reproductor" />
-        </LinearLayout>
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/buttonHistoria"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_span="1"
+                    android:background="@android:drawable/ic_dialog_info"
+                    android:onClick="onClick"
+                    android:text="@string/Historia" />
+
+                <Button
+                    android:id="@+id/buttonComentario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/stat_notify_chat"
+                    android:onClick="bt_comments"
+                    android:text="@string/bt_enviarCom" />
+            </TableRow>
+
+        </TableLayout>
 
     </LinearLayout>
 

@@ -16,6 +16,8 @@
     <string name="index_historia">Indice de contenido, pulse un elemento de la lista para consultar</string>
     <string name="masInfo">+ Info</string>
 
+    <string name="tv4">Inicios de la radio</string>
+    <string name="tituloIniciosHistoria">Bienvenido/a a la historia de la radio, pulsa un elemento de la lista para consulta</string>
     <string name="tv_Iniciosradio">Inicios de la radio</string>
     <string name="tv_evoluciion_radio">Ir a Evolucion</string>
     <string name="tv_futuro_radio">Ir a Futuro</string>
@@ -32,7 +34,6 @@
     <string name="ed_nombre">introduzca su nombre</string>
     <string name="ed_edad">introduzca su edad</string>
     <string name="ed_apellido">introduzca su apellido</string>
-    <string name="tv4">Inicios de la radio</string>
-    <string name="tituloIniciosHistoria">Bienvenido/a a la historia de la radio, pulsa un elemento de la lista para consulta</string>
+
 
 </resources>
