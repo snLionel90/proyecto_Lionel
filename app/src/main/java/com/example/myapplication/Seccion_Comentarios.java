@@ -17,8 +17,14 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -48,6 +54,13 @@ public class Seccion_Comentarios extends AppCompatActivity {
             }
         });
     }
+
+    public void btn_ver_comentario(View v){
+        if (btn_ver_comentarios.isClickable()){
+
+        }
+    }
+
 
 
     private void ejecutarServicio(String URL){

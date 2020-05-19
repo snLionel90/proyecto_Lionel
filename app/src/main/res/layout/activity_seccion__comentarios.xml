@@ -91,6 +91,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
+        android:onClick="btn_ver_comentario"
         android:text="@string/vt_verCom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
