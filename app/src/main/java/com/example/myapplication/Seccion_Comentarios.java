@@ -19,7 +19,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +26,8 @@ import java.util.Map;
 public class Seccion_Comentarios extends AppCompatActivity {
     TextView titleComent;
     EditText Ed_nombre,Ed_apellido,Ed_edad,Ed_comentario;
-    Button btnEnviar;
+    Button btnEnviar,btn_ver_comentarios;
+    RequestQueue requestQueue;
 //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,7 @@ public class Seccion_Comentarios extends AppCompatActivity {
         Ed_edad = findViewById(R.id.editTextEdad);
         Ed_comentario = findViewById(R.id.editTextComentario);
 
+        btn_ver_comentarios = findViewById(R.id.buttonVerCom);
         btnEnviar=findViewById(R.id.buttonSend);
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +48,7 @@ public class Seccion_Comentarios extends AppCompatActivity {
             }
         });
     }
+
 
     private void ejecutarServicio(String URL){
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
@@ -71,9 +73,11 @@ public class Seccion_Comentarios extends AppCompatActivity {
             }
         };
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
+
+
     //AREA PARA EL MENU ACTION BAR
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menus_superior,menu);

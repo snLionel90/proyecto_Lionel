@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="352dp"
-        android:layout_height="353dp"
+        android:layout_height="341dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="24dp"
@@ -61,7 +61,7 @@
         <EditText
             android:id="@+id/editTextComentario"
             android:layout_width="match_parent"
-            android:layout_height="167dp"
+            android:layout_height="148dp"
             android:layout_weight="1"
             android:ems="10"
             android:hint="@string/ed_cometario"
@@ -70,8 +70,8 @@
 
     <Button
         android:id="@+id/buttonSend"
-        android:layout_width="271dp"
-        android:layout_height="47dp"
+        android:layout_width="240dp"
+        android:layout_height="44dp"
         android:layout_marginStart="70dp"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="16dp"
@@ -81,5 +81,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <Button
+        android:id="@+id/buttonVerCom"
+        android:layout_width="235dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginRight="70dp"
+        android:text="@string/vt_verCom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSend" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
