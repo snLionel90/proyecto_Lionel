@@ -28,7 +28,7 @@ public class Seccion_Comentarios extends AppCompatActivity {
     TextView titleComent;
     EditText Ed_nombre,Ed_apellido,Ed_edad,Ed_comentario;
     Button btnEnviar;
-
+//
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
