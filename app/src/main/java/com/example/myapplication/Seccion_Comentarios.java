@@ -57,7 +57,8 @@ public class Seccion_Comentarios extends AppCompatActivity {
 
     public void btn_ver_comentario(View v){
         if (btn_ver_comentarios.isClickable()){
-
+            Intent intent = new Intent(this,acceso_datos.class);
+            startActivity(intent);
         }
     }
 
