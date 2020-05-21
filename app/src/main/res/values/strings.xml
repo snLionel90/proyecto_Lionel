@@ -15,6 +15,7 @@
     <string name="b4">Volver</string>
     <string name="index_historia">Indice de contenido, pulse un elemento de la lista para consultar</string>
     <string name="masInfo">+ Info</string>
+    <string name="ir">IR a:</string>
 
     <string name="tv4">Inicios de la radio</string>
     <string name="tituloIniciosHistoria">Bienvenido/a a la historia de la radio, pulsa un elemento de la lista para consulta</string>
@@ -23,6 +24,9 @@
     <string name="tv_futuro_radio">Ir a Futuro</string>
     <string name="tv_panel">Seleccione una emisora para escuchar, o ve a historia para ver la evolucion de la radio como medio de comunicacion</string>
     <string name="bt_enviarCom">Enviar Comentario</string>
+
+    <string name="tvtituloEvolucion">Evolucion de la radio</string>
+    <string name="tvTituloFuturo">Futuro de la radio</string>
 
     <string name="item1">Volver al menú principal</string>
     <string name="item2">Copyright</string>

@@ -25,6 +25,14 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
+            <Button
+                android:id="@+id/buttonVolver"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="atras"
+                android:text="@string/b4" />
+
             <TextView
                 android:id="@+id/textViewTituloComentarios"
                 android:layout_width="wrap_content"
@@ -64,7 +72,7 @@
             <EditText
                 android:id="@+id/editTextComentario"
                 android:layout_width="match_parent"
-                android:layout_height="148dp"
+                android:layout_height="92dp"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/ed_cometario"
@@ -107,6 +115,7 @@
                 app:layout_constraintEnd_toEndOf="@id/textViewInfoBuscar"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewInfoBuscar" />
+
         </LinearLayout>
     </ScrollView>
 

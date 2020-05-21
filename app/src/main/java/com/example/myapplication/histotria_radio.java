@@ -40,6 +40,12 @@ public class histotria_radio extends AppCompatActivity {
             startActivity(myIntent2);
         }
     }
+    public void futuro (View v){
+        if (bt_evolucion.isClickable()) {
+            Intent myIntent3 = new Intent(this, futuroRadio.class);
+            startActivity(myIntent3);
+        }
+    }
 
 //Botonera de navegacion
     public void comments(View v){
@@ -50,7 +56,7 @@ public class histotria_radio extends AppCompatActivity {
     }
     public void mainP(View v){
         if (mainP.isClickable()){
-            Intent myIntent = new Intent(this, MainActivity.class);
+            Intent myIntent = new Intent(this, panelRadio.class);
             startActivity(myIntent);
         }
     }

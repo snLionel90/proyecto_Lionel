@@ -29,12 +29,12 @@ public class radioplayer extends AppCompatActivity {
         bt_regreso=findViewById(R.id.buttonReturn);
         bt_silencio = findViewById(R.id.buttonSilencio);
         WebView webView =this.findViewById(R.id.webViewRadio);
+        webView.loadUrl("https://img2.rtve.es/css/rtve.2019.radio/i/rne_d.png");
         Bundle extras = getIntent().getExtras();
     }
 
     public void play (View v){
         if (bt_play.isClickable()){
-
 
         }
 

@@ -8,36 +8,30 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class iinicios_de_la_radio extends AppCompatActivity implements View.OnClickListener {
-    Button retroceso;
-    Bundle extras;
-    TextView tv1,tv2;
-
+public class futuroRadio extends AppCompatActivity implements View.OnClickListener {
+    Button volv_index;
+    TextView tv_titulo3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_iinicios_de_la_radio);
-        retroceso = findViewById(R.id.buttonRegresar);
+        setContentView(R.layout.activity_futuro_radio);
+        volv_index=findViewById(R.id.buttonIndex);
+        tv_titulo3=findViewById(R.id.textViewt2Evo);
 
-        tv1 = findViewById(R.id.textViewTitulo);
-        tv2 = findViewById(R.id.textViewtextoPrimeros);
-        retroceso.setOnClickListener(this);
-        Bundle extras = getIntent().getExtras();
+        volv_index.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if ( retroceso.isClickable()){
-            Intent intent_index  = new Intent(this, histotria_radio.class);
+        if (volv_index.isClickable()){
+            Intent intent_index  = new Intent(futuroRadio.this, histotria_radio.class);
             startActivity(intent_index);
         }
+
     }
-
-
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menus_superior,menu);
         return true;

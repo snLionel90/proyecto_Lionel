@@ -4,6 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#BEF5FC"
     tools:context=".evolucion_radio">
 
+    <ScrollView
+        android:layout_width="396dp"
+        android:layout_height="470dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewt2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:gravity="center"
+                android:text="@string/tvtituloEvolucion"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textView3ttt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="34dp"
+                android:layout_marginRight="34dp"
+                android:text="A principios de los años treinta radio-operadores aficionados inventaron la transmisión en banda lateral única (BLU).   En 1933 Edwin Armstrong describe un sistema de radio de alta calidad, menos sensible a los parásitos radioeléctricos que la AM, utilizando la modulación de frecuencia (FM).   A finales de la década este procedimiento se establece de forma comercial, al montar a su cargo el propio Armstrong una emisora con este sistema.   En 1948, la radio se hace visible: se desarrolla abiertamente la televisión.     En 1957, la firma Regency introduce el primer receptor transistorizado, lo suficientemente pequeño para ser llevado en un bolsillo y alimentado por una pequeña batería.    En 1963, se establece la primera comunicación radio vía satélite.   Al final de los años sesenta la red telefónica de larga distancia en EE.UU. comienza su conversión a red digital, empleando radio digital para muchos de sus enlaces.   Entre las décadas de los años 1960 y 1980 la radio entra en una época de declive debido a la competencia de la televisión y el hecho que las emisoras dejaron de emitir en onda corta (de alcance global) por VHF (el cual solo tiene un alcance de cientos de kilómetros)   En los años 1990 las nuevas tecnologías digitales comienzan a aplicarse al mundo de la radio.  Aumenta la calidad del sonido y se hacen pruebas con la radio satelital, esta tecnología permite el resurgimiento en el interés por la radio. "
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/buttonVolHist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/b4" />
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -42,8 +42,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_span="0"
-                android:background="@android:drawable/ic_menu_view"
-                android:onClick="bt_inicios" />
+                android:onClick="bt_inicios"
+                android:text="@string/ir" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -63,8 +63,8 @@
                 android:id="@+id/buttonEvolucion"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@android:drawable/ic_menu_view"
-                android:onClick="bt_evolucion" />
+                android:onClick="bt_evolucion"
+                android:text="@string/ir" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -83,7 +83,8 @@
                 android:id="@+id/buttonFuturo"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@android:drawable/ic_menu_view" />
+                android:onClick="futuro"
+                android:text="@string/ir" />
 
             <TextView
                 android:id="@+id/textView7"

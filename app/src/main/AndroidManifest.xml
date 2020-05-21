@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".acceso_datos"></activity>
+        <activity android:name=".futuroRadio"></activity>
+        <activity android:name=".acceso_datos" />
         <activity android:name=".evolucion_radio" />
         <activity android:name=".iinicios_de_la_radio" />
         <activity android:name=".histotria_radio" />

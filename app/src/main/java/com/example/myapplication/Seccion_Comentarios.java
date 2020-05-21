@@ -32,7 +32,7 @@ import java.util.Map;
 public class Seccion_Comentarios extends AppCompatActivity {
     TextView titleComent;
     EditText Ed_nombre,Ed_apellido,Ed_edad,Ed_comentario;
-    Button btnEnviar,btn_ver_datos;
+    Button btnEnviar,btn_ver_datos,bt_volver;
     RequestQueue requestQueue;
 //
     @Override
@@ -44,6 +44,7 @@ public class Seccion_Comentarios extends AppCompatActivity {
         Ed_apellido = findViewById(R.id.editTextApellido);
         Ed_edad = findViewById(R.id.editTextEdad);
         Ed_comentario = findViewById(R.id.editTextComentario);
+        bt_volver = findViewById(R.id.buttonVolver);
 
         btn_ver_datos = findViewById(R.id.buttonVerCom);
         btnEnviar=findViewById(R.id.buttonSend);
@@ -53,6 +54,12 @@ public class Seccion_Comentarios extends AppCompatActivity {
                 ejecutarServicio("http://192.168.1.133:8080/DBradio/insertar_usuarios.php");
             }
         });
+    }
+    public void atras(View v){
+        if (bt_volver.isClickable()) {
+            Intent intent = new Intent(this, panelRadio.class);
+            startActivity(intent);
+        }
     }
 
     public void btn_ver_datos(View v){
