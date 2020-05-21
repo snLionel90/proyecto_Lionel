@@ -33,7 +33,7 @@ import java.util.Map;
 
 public class acceso_datos extends AppCompatActivity {
     EditText ed_nom_emisora, ed_ciudad, ed_introducirNombre, ed_dir_stream;
-    Button bt_buscar;
+    Button bt_buscar,bt_regresar;
     RequestQueue requestQueue;
 
     @Override
@@ -45,6 +45,8 @@ public class acceso_datos extends AppCompatActivity {
         ed_ciudad = findViewById(R.id.editTextCiudad);
         ed_dir_stream = findViewById(R.id.editTextStream);
         bt_buscar  = findViewById(R.id.buttonBuscar);
+        bt_regresar = findViewById(R.id.buttonretro);
+
         bt_buscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +54,13 @@ public class acceso_datos extends AppCompatActivity {
             }
         });
     }
+    public void volver_comentarios(View v){
+        if (bt_regresar.isClickable()){
+            Intent intent = new Intent(this,Seccion_Comentarios.class);
+            startActivity(intent);
+        }
+    }
+
     private void buscarEmisora (String URL)
     {
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {

@@ -8,28 +8,26 @@
     tools:context=".Seccion_Comentarios">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="366dp"
+        android:layout_height="729dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginRight="29dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textViewTituloComentarios"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -74,8 +72,8 @@
 
             <Button
                 android:id="@+id/buttonSend"
-                android:layout_width="240dp"
-                android:layout_height="44dp"
+                android:layout_width="263dp"
+                android:layout_height="37dp"
                 android:layout_marginStart="70dp"
                 android:layout_marginLeft="70dp"
                 android:layout_marginTop="16dp"
@@ -85,8 +83,8 @@
 
             <TextView
                 android:id="@+id/textViewInfoBuscar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="8dp"
@@ -101,12 +99,12 @@
                 android:layout_height="43dp"
                 android:layout_marginStart="70dp"
                 android:layout_marginLeft="70dp"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="1dp"
                 android:layout_marginEnd="42dp"
                 android:layout_marginRight="42dp"
                 android:onClick="btn_ver_datos"
                 android:text="@string/vt_verCom"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/textViewInfoBuscar"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewInfoBuscar" />
         </LinearLayout>

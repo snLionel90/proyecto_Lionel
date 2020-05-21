@@ -78,6 +78,13 @@
 
             </LinearLayout>
 
+            <Button
+                android:id="@+id/buttonretro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="volver_comentarios"
+                android:text="@string/b4" />
+
         </LinearLayout>
     </ScrollView>
 

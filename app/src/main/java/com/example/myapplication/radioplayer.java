@@ -3,10 +3,12 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
@@ -14,7 +16,9 @@ import android.widget.Toast;
 public class radioplayer extends AppCompatActivity {
     Button bt_play,bt_stop,bt_regreso,bt_silencio;
     Bundle extras;
-    FrameLayout fm;
+    MediaPlayer mediaPlayer;
+    String stream="https://rne.rtveradio.cires21.com/rne_hc.mp3";
+    boolean prepared,started=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +28,13 @@ public class radioplayer extends AppCompatActivity {
         bt_stop=findViewById(R.id.buttonStop);
         bt_regreso=findViewById(R.id.buttonReturn);
         bt_silencio = findViewById(R.id.buttonSilencio);
-        fm = findViewById(R.id.frameLayout);
+        WebView webView =this.findViewById(R.id.webViewRadio);
         Bundle extras = getIntent().getExtras();
     }
 
     public void play (View v){
         if (bt_play.isClickable()){
+
 
         }
 
