@@ -6,4 +6,79 @@
     android:layout_height="match_parent"
     tools:context=".acceso_datos">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#65BDC9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="23dp"
+            android:layout_marginRight="23dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bd_titulo"
+                android:textColor="#F8FFFFFF"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/editTextbuscar_emisora"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="nombre emisora a buscar"
+                android:inputType="textPersonName"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/buttonBuscar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bt_buscar" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/editTextNombre_emisora"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/ednombreemisora"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/editTextCiudad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/ed_ciudad"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/editTextStream"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/ed_direccion_Stream"
+                    android:inputType="textPersonName" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

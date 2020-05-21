@@ -32,7 +32,7 @@ import java.util.Map;
 public class Seccion_Comentarios extends AppCompatActivity {
     TextView titleComent;
     EditText Ed_nombre,Ed_apellido,Ed_edad,Ed_comentario;
-    Button btnEnviar,btn_ver_comentarios;
+    Button btnEnviar,btn_ver_datos;
     RequestQueue requestQueue;
 //
     @Override
@@ -45,23 +45,22 @@ public class Seccion_Comentarios extends AppCompatActivity {
         Ed_edad = findViewById(R.id.editTextEdad);
         Ed_comentario = findViewById(R.id.editTextComentario);
 
-        btn_ver_comentarios = findViewById(R.id.buttonVerCom);
+        btn_ver_datos = findViewById(R.id.buttonVerCom);
         btnEnviar=findViewById(R.id.buttonSend);
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ejecutarServicio("http://192.168.1.133:8080/usuarios_radio/insertar_usuarios.php");
+                ejecutarServicio("http://192.168.1.133:8080/DBradio/insertar_usuarios.php");
             }
         });
     }
 
-    public void btn_ver_comentario(View v){
-        if (btn_ver_comentarios.isClickable()){
+    public void btn_ver_datos(View v){
+        if (btn_ver_datos.isClickable()){
             Intent intent = new Intent(this,acceso_datos.class);
             startActivity(intent);
         }
     }
-
 
 
     private void ejecutarServicio(String URL){
@@ -120,6 +119,4 @@ public class Seccion_Comentarios extends AppCompatActivity {
         }
         return  super.onOptionsItemSelected(item);
     }
-
-
 }

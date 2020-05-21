@@ -7,94 +7,109 @@
     android:background="#CBE3EE"
     tools:context=".Seccion_Comentarios">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="352dp"
-        android:layout_height="341dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textViewTituloComentarios"
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/tit_comentarios"
-            android:textSize="18sp" />
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editTextNombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="@string/ed_nombre"
-            android:inputType="textPersonName" />
+            <TextView
+                android:id="@+id/textViewTituloComentarios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/tit_comentarios"
+                android:textSize="18sp" />
 
-        <EditText
-            android:id="@+id/editTextApellido"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="@string/ed_apellido"
-            android:inputType="textPersonName" />
+            <EditText
+                android:id="@+id/editTextNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/ed_nombre"
+                android:inputType="textPersonName" />
 
-        <EditText
-            android:id="@+id/editTextEdad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="@string/ed_edad"
-            android:inputType="number" />
+            <EditText
+                android:id="@+id/editTextApellido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/ed_apellido"
+                android:inputType="textPersonName" />
 
-        <EditText
-            android:id="@+id/editTextComentario"
-            android:layout_width="match_parent"
-            android:layout_height="148dp"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="@string/ed_cometario"
-            android:inputType="textPersonName" />
-    </LinearLayout>
+            <EditText
+                android:id="@+id/editTextEdad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/ed_edad"
+                android:inputType="number" />
 
-    <Button
-        android:id="@+id/buttonSend"
-        android:layout_width="240dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginRight="70dp"
-        android:text="@string/bt_enviarCom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            <EditText
+                android:id="@+id/editTextComentario"
+                android:layout_width="match_parent"
+                android:layout_height="148dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/ed_cometario"
+                android:inputType="textPersonName" />
 
-    <Button
-        android:id="@+id/buttonVerCom"
-        android:layout_width="235dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginRight="70dp"
-        android:onClick="btn_ver_comentario"
-        android:text="@string/vt_verCom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSend" />
+            <Button
+                android:id="@+id/buttonSend"
+                android:layout_width="240dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="70dp"
+                android:layout_marginRight="70dp"
+                android:text="@string/bt_enviarCom" />
+
+            <TextView
+                android:id="@+id/textViewInfoBuscar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="22dp"
+                android:layout_marginRight="22dp"
+                android:text="@string/tv_buscar"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/buttonVerCom"
+                android:layout_width="235dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="42dp"
+                android:layout_marginRight="42dp"
+                android:onClick="btn_ver_datos"
+                android:text="@string/vt_verCom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewInfoBuscar" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
