@@ -15,6 +15,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:background="#62D5D5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -35,18 +36,20 @@
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="357dp"
-                android:layout_height="522dp"
-                android:layout_marginLeft="34dp"
-                android:layout_marginRight="34dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:text="La masificación del vídeo en todos los medios de comunicación ha tenido consecuencias transversales, incluso para la radio. Este sistema, que se basaba solamente en el audio hasta principios del siglo XXI, tuvo que reinventarse dado los distintos avances en la tecnología y las telecomunicaciones; y aún más importante, para mantener las estaciones funcionando y sobrevivir Actualmente hay muchas emisoras de radio que están transmitiendo sus programas en vídeo a través de internet, y no solo es por las ganancias, sino que de esta manera pueden conectar con el público de una manera que simplemente no existía hasta hace unos años atrás.La radio del futuro se centrara enpodcast y en transmisiones digitales, tando streaming como en radio digital aerea, El futuro pasa por permitirle al oyente construir su propia línea temporal de escucha, mezclando programación en vivo y pregrabada, para esa hora y espacio de tiempo determinados en los que defina estar con ella."
                 android:textColor="#A04545"
                 android:textSize="18sp" />
 
             <Button
                 android:id="@+id/buttonIndex"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@android:drawable/ic_menu_revert"
                 android:text="@string/b4" />
         </LinearLayout>
     </ScrollView>

@@ -37,14 +37,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="nombre emisora a buscar"
                 android:inputType="textPersonName"
                 android:textColor="#FFFFFF" />
 
             <Button
                 android:id="@+id/buttonBuscar"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@android:drawable/ic_menu_search"
                 android:text="@string/bt_buscar" />
 
             <LinearLayout
@@ -80,8 +81,10 @@
 
             <Button
                 android:id="@+id/buttonretro"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@android:drawable/ic_menu_revert"
                 android:onClick="volver_comentarios"
                 android:text="@string/b4" />
 

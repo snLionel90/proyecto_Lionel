@@ -46,8 +46,10 @@
         </ListView>
 
         <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="105dp"
+            android:layout_gravity="center"
+            android:gravity="center">
 
             <TableRow
                 android:layout_width="wrap_content"
@@ -55,8 +57,9 @@
 
                 <Button
                     android:id="@+id/buttonInicio"
-                    android:layout_width="159dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_span="1"
                     android:background="@android:drawable/ic_menu_revert"
                     android:onClick="inicioMain"
@@ -66,7 +69,8 @@
                     android:id="@+id/buttonRepro"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:layout_weight="0"
                     android:background="@android:drawable/stat_notify_voicemail"
                     android:onClick="bt_reproductor"
                     android:text="@string/reproductor" />
@@ -78,8 +82,9 @@
 
                 <Button
                     android:id="@+id/buttonHistoria"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_span="1"
                     android:background="@android:drawable/ic_dialog_info"
                     android:onClick="onClick"
@@ -89,10 +94,11 @@
                     android:id="@+id/buttonComentario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:layout_weight="0"
                     android:background="@android:drawable/stat_notify_chat"
                     android:onClick="bt_comments"
-                    android:text="@string/bt_enviarCom" />
+                    android:text="@string/btcomentar" />
             </TableRow>
 
         </TableLayout>
