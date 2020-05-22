@@ -65,32 +65,32 @@ public class panelRadio extends AppCompatActivity implements AdapterView.OnItemC
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(this, "has elegido " + radios[position], Toast.LENGTH_LONG).show();
         if (position == 0) {
-            Intent myIntent = new Intent(view.getContext(), radioplayer.class);
+            Intent myIntent = new Intent(view.getContext(), rp_Los40CL.class); //Los 40 Clasic
             startActivity(myIntent);
 
         } else if (position == 1) {
-            Intent myIntent2 = new Intent(view.getContext(), rp_Los40CL.class);
-            startActivity(myIntent2);
+            Intent myIntent2 = new Intent(view.getContext(), radioplayer.class);
+            startActivity(myIntent2); //rock fm
 
         } else if (position == 2) {
             Intent myIntent3 = new Intent(view.getContext(), radioplayer.class);
-            startActivity(myIntent3);
+            startActivity(myIntent3); //Cadena 100
 
         } else if (position == 3) {
             Intent myIntent4 = new Intent(view.getContext(), radioplayer.class);
-            startActivity(myIntent4);
+            startActivity(myIntent4); //Kiss FM
 
         } else if (position == 4) {
             Intent myIntent5 = new Intent(view.getContext(), radioplayer.class);
-            startActivity(myIntent5);
+            startActivity(myIntent5); //Europa Fm
 
         } else if (position == 5) {
             Intent myIntent6 = new Intent(view.getContext(), radioplayer.class);
-            startActivity(myIntent6);
+            startActivity(myIntent6); //RNE RAdio nacional
 
         } else if (position == 6) {
             Intent myIntent7 = new Intent(view.getContext(), radioplayer.class);
-            startActivity(myIntent7);
+            startActivity(myIntent7); //Radio 4G
 
         } else if (position == 7) {
             Intent myIntent8 = new Intent(view.getContext(), radioplayer.class);

@@ -13,37 +13,63 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
+import android.media.MediaPlayer.OnBufferingUpdateListener;
+import android.media.MediaPlayer.OnPreparedListener;
 import java.io.IOException;
 
 public class rp_Los40CL extends AppCompatActivity implements View.OnClickListener {
 
     Button btplay,btsop,btreturn;
-    Bundle extras;
-    MediaPlayer mediaPlayer;
+    MediaPlayer mediaplay;
     ProgressBar play_Bar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rp__los40_cl);
-        WebView webView = this.findViewById(R.id.webViewRadio);
-        webView.loadUrl("https://prnoticias.com/media/k2/items/cache/a53dfb856be2ffedef14c2114659ec12_XL.jpg");
+        WebView webView = this.findViewById(R.id.webView40cl);
+        webView.loadUrl("https://los40es00.epimg.net/iconos/v3.x/v1.0/cabeceras/logo_40_classic.png");
 
-        inicializarComponentes();
-        initializarMediaPlayer();
+        inicializarComponentes2();
+        initializarMediaPlayer2();
 
     }
 
-    private void inicializarComponentes() {
+    private void initializarMediaPlayer2() {
+        mediaplay = new MediaPlayer();
+        try {
+            mediaplay.setDataSource("http://208.92.53.81:3690/LOS40_CLASSIC_SC");
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        mediaplay.setOnBufferingUpdateListener(new OnBufferingUpdateListener() {
+            public void onBufferingUpdate(MediaPlayer mp1, int percent) {
+                play_Bar.setSecondaryProgress(percent);
+                Log.i("Buffering", "" + percent);
+            }
+        });
+    }
+
+    private void inicializarComponentes2() {
         btplay = findViewById(R.id.bt_play2);
         btsop= findViewById(R.id.bt_stop2r);
         btreturn = findViewById(R.id.bt_retn);
+
         play_Bar = findViewById(R.id.progressBar2);
         play_Bar.setMax(100);
         play_Bar.setVisibility(View.INVISIBLE);
+
         btsop.setEnabled(false);
         btplay.setOnClickListener(this);
     }
+
+
+
     @Override
     public void onClick(View v) {
         if (v == btplay) {
@@ -53,53 +79,35 @@ public class rp_Los40CL extends AppCompatActivity implements View.OnClickListene
         }
     }
 
-    private void stopPlaying() {
-        if (mediaPlayer.isPlaying()) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-            initializarMediaPlayer();
-        }
-        btplay.setEnabled(true);
-        btsop.setEnabled(false);
-    }
-    public void regreso (View v){
-        if (btreturn.isClickable()){
-            Intent ir = new Intent(this,panelRadio.class);
-            startActivity(ir);
-        }
-    }
     private void startPlaying() {
         btsop.setEnabled(true);
         btplay.setEnabled(false);
 
         play_Bar.setVisibility(View.VISIBLE);
-        mediaPlayer.prepareAsync();
-        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+        mediaplay.prepareAsync();
+        mediaplay.setOnPreparedListener(new OnPreparedListener() {
 
-            public void onPrepared(MediaPlayer mp) {
-                mediaPlayer.start();
+            public void onPrepared(MediaPlayer mp1) {
+                mediaplay.start();
             }
         });
     }
 
-    private void  initializarMediaPlayer() {
-        mediaPlayer = new MediaPlayer();
-        try {
-            mediaPlayer.setDataSource("http://208.92.53.81:3690/LOS40_CLASSIC_SC");
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        } catch (IllegalStateException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+    private void stopPlaying() {
+        if (mediaplay.isPlaying()) {
+            mediaplay.stop();
+            mediaplay.release();
+            initializarMediaPlayer2();
         }
+        btplay.setEnabled(true);
+        btsop.setEnabled(false);
+    }
 
-        mediaPlayer.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
-            public void onBufferingUpdate(MediaPlayer mp, int percent) {
-                play_Bar.setSecondaryProgress(percent);
-                Log.i("Buffering", "" + percent);
-            }
-        });
+    public void regreso (View v){
+        if (btreturn.isClickable()){
+            Intent ir = new Intent(this,panelRadio.class);
+            startActivity(ir);
+        }
     }
 
     //AREA PARA EL MENU ACTION BAR
