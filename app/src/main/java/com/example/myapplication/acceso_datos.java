@@ -50,7 +50,7 @@ public class acceso_datos extends AppCompatActivity {
         bt_buscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buscarEmisora("http://192.168.1.133:8080/DBradio/buscar_emiosras.php?nombre_emisora="+ed_nom_emisora.getText()+"");
+                buscarEmisora("http://192.168.1.133:8080/DBradio/buscar_emiosras.php?nombre_emisora="+ed_introducirNombre.getText()+"");
             }
         });
     }

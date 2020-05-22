@@ -23,18 +23,46 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <WebView
+        android:id="@+id/webViewRadio"
+        android:layout_width="330dp"
+        android:layout_height="309dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEs">
+
+    </WebView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="345dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginLeft="33dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginRight="33dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/webViewRadio" />
+
     <TableLayout
         android:id="@+id/tabla"
         android:layout_width="356dp"
         android:layout_height="55dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/webViewRadio">
+        app:layout_constraintTop_toBottomOf="@+id/progressBar">
 
         <TableRow
             android:layout_width="match_parent"
@@ -73,17 +101,5 @@
                 android:background="@android:drawable/ic_lock_silent_mode" />
         </TableRow>
     </TableLayout>
-
-    <WebView
-        android:id="@+id/webViewRadio"
-        android:layout_width="352dp"
-        android:layout_height="349dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginRight="31dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEs" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

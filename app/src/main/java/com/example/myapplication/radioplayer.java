@@ -3,46 +3,110 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
+import android.media.MediaPlayer.OnBufferingUpdateListener;
+import android.media.MediaPlayer.OnPreparedListener;
 
-public class radioplayer extends AppCompatActivity {
+import java.io.IOException;
+
+public class radioplayer extends AppCompatActivity implements View.OnClickListener {
     Button bt_play,bt_stop,bt_regreso,bt_silencio;
     Bundle extras;
     MediaPlayer mediaPlayer;
-    String stream="https://rne.rtveradio.cires21.com/rne_hc.mp3";
-    boolean prepared,started=false;
+    ProgressBar playSeekBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_radioplayer);
-        bt_play=findViewById(R.id.buttonPlay);
-        bt_stop=findViewById(R.id.buttonStop);
-        bt_regreso=findViewById(R.id.buttonReturn);
-        bt_silencio = findViewById(R.id.buttonSilencio);
-        WebView webView =this.findViewById(R.id.webViewRadio);
+
+        WebView webView = this.findViewById(R.id.webViewRadio);
         webView.loadUrl("https://img2.rtve.es/css/rtve.2019.radio/i/rne_d.png");
-        Bundle extras = getIntent().getExtras();
+
+        inicializarComponentes();
+        initializarMediaPlayer();
     }
 
-    public void play (View v){
-        if (bt_play.isClickable()){
-
+    private void  initializarMediaPlayer() {
+        mediaPlayer = new MediaPlayer();
+        try {
+          mediaPlayer.setDataSource("https://rne.rtveradio.cires21.com/rne_hc.mp3");
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+        mediaPlayer.setOnBufferingUpdateListener(new OnBufferingUpdateListener() {
+
+            public void onBufferingUpdate(MediaPlayer mp, int percent) {
+                playSeekBar.setSecondaryProgress(percent);
+                Log.i("Buffering", "" + percent);
+            }
+        });
+    }
+
+    private void inicializarComponentes() {
+
+        bt_play = findViewById(R.id.buttonPlay);
+        bt_stop = findViewById(R.id.buttonStop);
+        bt_regreso = findViewById(R.id.buttonReturn);
+        bt_silencio = findViewById(R.id.buttonSilencio);
+
+        playSeekBar = (ProgressBar) findViewById(R.id.progressBar);
+        playSeekBar.setMax(100);
+        playSeekBar.setVisibility(View.INVISIBLE);
+        bt_stop.setEnabled(false);
+        bt_play.setOnClickListener(this);
 
     }
-    public void stop (View v){
-        if (bt_stop.isClickable()){
-
+    @Override
+    public void onClick(View v) {
+        if (v == bt_play) {
+            startPlaying();
+        } else if (v == bt_stop) {
+            stopPlaying();
         }
+    }
+    private void startPlaying() {
+        bt_stop.setEnabled(true);
+        bt_play.setEnabled(false);
+
+        playSeekBar.setVisibility(View.VISIBLE);
+
+        mediaPlayer.prepareAsync();
+
+        mediaPlayer.setOnPreparedListener(new OnPreparedListener() {
+
+            public void onPrepared(MediaPlayer mp) {
+                mediaPlayer.start();
+            }
+        });
+
+    }
+    private void stopPlaying() {
+        if (mediaPlayer.isPlaying()) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            initializarMediaPlayer();
+        }
+
+        bt_play.setEnabled(true);
+        bt_stop.setEnabled(false);
+        playSeekBar.setVisibility(View.INVISIBLE);
 
     }
     public void regreso (View v){
@@ -80,4 +144,6 @@ public class radioplayer extends AppCompatActivity {
         }
         return  super.onOptionsItemSelected(item);
     }
+
+
 }
