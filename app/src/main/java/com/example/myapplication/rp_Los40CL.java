@@ -27,7 +27,7 @@ public class rp_Los40CL extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rp__los40_cl);
         WebView webView = this.findViewById(R.id.webViewRadio);
-        webView.loadUrl("https://img2.rtve.es/css/rtve.2019.radio/i/rne_d.png");
+        webView.loadUrl("https://prnoticias.com/media/k2/items/cache/a53dfb856be2ffedef14c2114659ec12_XL.jpg");
 
         inicializarComponentes();
         initializarMediaPlayer();

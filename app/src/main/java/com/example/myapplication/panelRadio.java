@@ -69,7 +69,7 @@ public class panelRadio extends AppCompatActivity implements AdapterView.OnItemC
             startActivity(myIntent);
 
         } else if (position == 1) {
-            Intent myIntent2 = new Intent(view.getContext(), radioplayer.class);
+            Intent myIntent2 = new Intent(view.getContext(), rp_Los40CL.class);
             startActivity(myIntent2);
 
         } else if (position == 2) {
