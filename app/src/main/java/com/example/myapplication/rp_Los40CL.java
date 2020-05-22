@@ -3,7 +3,6 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,36 +11,81 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-import android.media.MediaPlayer.OnBufferingUpdateListener;
-import android.media.MediaPlayer.OnPreparedListener;
 
 import java.io.IOException;
 
-public class radioplayer extends AppCompatActivity implements View.OnClickListener {
-    Button bt_play,bt_stop,bt_regreso,bt_silencio;
+public class rp_Los40CL extends AppCompatActivity implements View.OnClickListener {
+
+    Button btplay,btsop,btreturn;
     Bundle extras;
     MediaPlayer mediaPlayer;
-    ProgressBar playSeekBar;
-
+    ProgressBar play_Bar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_radioplayer);
-
+        setContentView(R.layout.activity_rp__los40_cl);
         WebView webView = this.findViewById(R.id.webViewRadio);
         webView.loadUrl("https://img2.rtve.es/css/rtve.2019.radio/i/rne_d.png");
 
         inicializarComponentes();
         initializarMediaPlayer();
+
+    }
+
+    private void inicializarComponentes() {
+        btplay = findViewById(R.id.bt_play2);
+        btsop= findViewById(R.id.bt_stop2r);
+        btreturn = findViewById(R.id.bt_retn);
+        play_Bar = findViewById(R.id.progressBar2);
+        play_Bar.setMax(100);
+        play_Bar.setVisibility(View.INVISIBLE);
+        btsop.setEnabled(false);
+        btplay.setOnClickListener(this);
+    }
+    @Override
+    public void onClick(View v) {
+        if (v == btplay) {
+            startPlaying();
+        } else if (v == btsop) {
+            stopPlaying();
+        }
+    }
+
+    private void stopPlaying() {
+        if (mediaPlayer.isPlaying()) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            initializarMediaPlayer();
+        }
+        btplay.setEnabled(true);
+        btsop.setEnabled(false);
+    }
+    public void regreso (View v){
+        if (btreturn.isClickable()){
+            Intent ir = new Intent(this,panelRadio.class);
+            startActivity(ir);
+        }
+    }
+    private void startPlaying() {
+        btsop.setEnabled(true);
+        btplay.setEnabled(false);
+
+        play_Bar.setVisibility(View.VISIBLE);
+        mediaPlayer.prepareAsync();
+        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+
+            public void onPrepared(MediaPlayer mp) {
+                mediaPlayer.start();
+            }
+        });
     }
 
     private void  initializarMediaPlayer() {
         mediaPlayer = new MediaPlayer();
         try {
-          mediaPlayer.setDataSource("https://rne.rtveradio.cires21.com/rne_hc.mp3");
+            mediaPlayer.setDataSource("http://208.92.53.81:3690/LOS40_CLASSIC_SC");
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         } catch (IllegalStateException e) {
@@ -50,63 +94,14 @@ public class radioplayer extends AppCompatActivity implements View.OnClickListen
             e.printStackTrace();
         }
 
-        mediaPlayer.setOnBufferingUpdateListener(new OnBufferingUpdateListener() {
+        mediaPlayer.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
             public void onBufferingUpdate(MediaPlayer mp, int percent) {
-                playSeekBar.setSecondaryProgress(percent);
+                play_Bar.setSecondaryProgress(percent);
                 Log.i("Buffering", "" + percent);
             }
         });
     }
 
-    private void inicializarComponentes() {
-        bt_play = findViewById(R.id.buttonPlay);
-        bt_stop = findViewById(R.id.buttonStop);
-        bt_regreso = findViewById(R.id.buttonReturn);
-        bt_silencio = findViewById(R.id.buttonSilencio);
-
-        playSeekBar = (ProgressBar) findViewById(R.id.progressBar);
-        playSeekBar.setMax(100);
-        playSeekBar.setVisibility(View.INVISIBLE);
-        bt_stop.setEnabled(false);
-        bt_play.setOnClickListener(this);
-
-    }
-    @Override
-    public void onClick(View v) {
-        if (v == bt_play) {
-            startPlaying();
-        } else if (v == bt_stop) {
-            stopPlaying();
-        }
-    }
-    private void startPlaying() {
-        bt_stop.setEnabled(true);
-        bt_play.setEnabled(false);
-
-        playSeekBar.setVisibility(View.VISIBLE);
-        mediaPlayer.prepareAsync();
-        mediaPlayer.setOnPreparedListener(new OnPreparedListener() {
-
-            public void onPrepared(MediaPlayer mp) {
-                mediaPlayer.start();
-            }
-        });
-    }
-    private void stopPlaying() {
-        if (mediaPlayer.isPlaying()) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-            initializarMediaPlayer();
-        }
-        bt_play.setEnabled(true);
-        bt_stop.setEnabled(false);
-    }
-    public void regreso (View v){
-        if (bt_regreso.isClickable()){
-            Intent ir = new Intent(this,panelRadio.class);
-            startActivity(ir);
-        }
-    }
     //AREA PARA EL MENU ACTION BAR
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menus_superior,menu);
@@ -135,5 +130,4 @@ public class radioplayer extends AppCompatActivity implements View.OnClickListen
         }
         return  super.onOptionsItemSelected(item);
     }
-
 }
