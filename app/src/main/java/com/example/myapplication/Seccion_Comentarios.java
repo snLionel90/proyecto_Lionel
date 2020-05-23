@@ -17,13 +17,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -32,9 +27,8 @@ import java.util.Map;
 public class Seccion_Comentarios extends AppCompatActivity {
     TextView titleComent;
     EditText Ed_nombre,Ed_apellido,Ed_edad,Ed_comentario;
-    Button btnEnviar,btn_ver_datos,bt_volver;
-    RequestQueue requestQueue;
-//
+    Button btnEnviar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,31 +38,15 @@ public class Seccion_Comentarios extends AppCompatActivity {
         Ed_apellido = findViewById(R.id.editTextApellido);
         Ed_edad = findViewById(R.id.editTextEdad);
         Ed_comentario = findViewById(R.id.editTextComentario);
-        bt_volver = findViewById(R.id.buttonVolver);
 
-        btn_ver_datos = findViewById(R.id.buttonVerCom);
         btnEnviar=findViewById(R.id.buttonSend);
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ejecutarServicio("http://192.168.1.133:8080/DBradio/insertar_usuarios.php");
+                ejecutarServicio("http://192.168.1.133:8080/usuarios_radio/insertar_usuarios.php");
             }
         });
     }
-    public void atras(View v){
-        if (bt_volver.isClickable()) {
-            Intent intent = new Intent(this, panelRadio.class);
-            startActivity(intent);
-        }
-    }
-
-    public void btn_ver_datos(View v){
-        if (btn_ver_datos.isClickable()){
-            Intent intent = new Intent(this,acceso_datos.class);
-            startActivity(intent);
-        }
-    }
-
 
     private void ejecutarServicio(String URL){
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
@@ -93,11 +71,9 @@ public class Seccion_Comentarios extends AppCompatActivity {
             }
         };
 
-        requestQueue = Volley.newRequestQueue(this);
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
-
-
     //AREA PARA EL MENU ACTION BAR
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menus_superior,menu);
@@ -126,4 +102,6 @@ public class Seccion_Comentarios extends AppCompatActivity {
         }
         return  super.onOptionsItemSelected(item);
     }
+
+
 }
