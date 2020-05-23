@@ -21,7 +21,7 @@ import android.media.MediaPlayer.OnPreparedListener;
 import java.io.IOException;
 
 public class radioplayer extends AppCompatActivity implements View.OnClickListener {
-    Button bt_play,bt_stop,bt_regreso,bt_silencio;
+    Button bt_play,bt_stop,bt_regreso;
     MediaPlayer mediaPlayer;
     ProgressBar playSeekBar;
 
@@ -61,7 +61,6 @@ public class radioplayer extends AppCompatActivity implements View.OnClickListen
         bt_play = findViewById(R.id.buttonPlay);
         bt_stop = findViewById(R.id.buttonStop);
         bt_regreso = findViewById(R.id.buttonReturn);
-        bt_silencio = findViewById(R.id.buttonSilencio);
 
         playSeekBar =  findViewById(R.id.progressBar);
         playSeekBar.setMax(100);
