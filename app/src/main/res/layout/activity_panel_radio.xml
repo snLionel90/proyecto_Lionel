@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#68C2CE"
+    android:background="#92E1DCF1"
     tools:context=".panelRadio">
 
     <TextView
@@ -41,7 +41,7 @@
             android:id="@+id/listaRadios"
             android:layout_width="match_parent"
             android:layout_height="294dp"
-            android:background="#4CAF50">
+            android:background="#CDD1CD">
 
         </ListView>
 

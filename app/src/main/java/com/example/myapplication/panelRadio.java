@@ -69,7 +69,7 @@ public class panelRadio extends AppCompatActivity implements AdapterView.OnItemC
             startActivity(myIntent);
 
         } else if (position == 1) {
-            Intent myIntent2 = new Intent(view.getContext(), radioplayer.class);
+            Intent myIntent2 = new Intent(view.getContext(), rp_rockFM.class);
             startActivity(myIntent2); //rock fm
 
         } else if (position == 2) {
@@ -90,11 +90,11 @@ public class panelRadio extends AppCompatActivity implements AdapterView.OnItemC
 
         } else if (position == 6) {
             Intent myIntent7 = new Intent(view.getContext(), radioplayer.class);
-            startActivity(myIntent7); //Radio 4G
+            startActivity(myIntent7); //Melodia FM
 
         } else if (position == 7) {
             Intent myIntent8 = new Intent(view.getContext(), radioplayer.class);
-            startActivity(myIntent8);
+            startActivity(myIntent8); //RADIO 4G
         }
 
     }

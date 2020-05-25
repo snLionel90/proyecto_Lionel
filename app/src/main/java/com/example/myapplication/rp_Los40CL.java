@@ -34,7 +34,53 @@ public class rp_Los40CL extends AppCompatActivity implements View.OnClickListene
         initializarMediaPlayer2();
 
     }
+    private void inicializarComponentes2() {
+        btplay = findViewById(R.id.bt_play2);
+        btsop= findViewById(R.id.bt_stop2r);
+        btreturn = findViewById(R.id.bt_retn);
 
+        play_Bar = findViewById(R.id.progressBar2);
+        play_Bar.setMax(100);
+        play_Bar.setVisibility(View.INVISIBLE);
+
+        btplay.setOnClickListener(this);
+    }
+    //Botonera
+    @Override
+    public void onClick(View v) {
+        if (btplay.isClickable()) {
+            play_Bar.setVisibility(View.VISIBLE);
+            mediaplay.prepareAsync();
+            mediaplay.setOnPreparedListener(new OnPreparedListener() {
+
+                public void onPrepared(MediaPlayer mp1) {
+                    mediaplay.start();
+                }
+            });
+        }
+    }
+    public void stop (View v){
+        if (btsop.isClickable()){
+            detener();
+        }
+    }
+
+    private void detener() {
+        if (mediaplay.isPlaying())
+        {
+            mediaplay.stop();
+        }
+    }
+
+    public void regreso (View v){
+        if (btreturn.isClickable()){
+            Intent ir = new Intent(this,panelRadio.class);
+            startActivity(ir);
+            detener();
+        }
+    }
+
+    //MEdiaplayer
     private void initializarMediaPlayer2() {
         mediaplay = new MediaPlayer();
         try {
@@ -55,60 +101,6 @@ public class rp_Los40CL extends AppCompatActivity implements View.OnClickListene
         });
     }
 
-    private void inicializarComponentes2() {
-        btplay = findViewById(R.id.bt_play2);
-        btsop= findViewById(R.id.bt_stop2r);
-        btreturn = findViewById(R.id.bt_retn);
-
-        play_Bar = findViewById(R.id.progressBar2);
-        play_Bar.setMax(100);
-        play_Bar.setVisibility(View.INVISIBLE);
-
-        btsop.setEnabled(false);
-        btplay.setOnClickListener(this);
-    }
-
-
-
-    @Override
-    public void onClick(View v) {
-        if (v == btplay) {
-            startPlaying();
-        } else if (v == btsop) {
-            stopPlaying();
-        }
-    }
-
-    private void startPlaying() {
-        btsop.setEnabled(true);
-        btplay.setEnabled(false);
-
-        play_Bar.setVisibility(View.VISIBLE);
-        mediaplay.prepareAsync();
-        mediaplay.setOnPreparedListener(new OnPreparedListener() {
-
-            public void onPrepared(MediaPlayer mp1) {
-                mediaplay.start();
-            }
-        });
-    }
-
-    private void stopPlaying() {
-        if (mediaplay.isPlaying()) {
-            mediaplay.stop();
-            mediaplay.release();
-            initializarMediaPlayer2();
-        }
-        btplay.setEnabled(true);
-        btsop.setEnabled(false);
-    }
-
-    public void regreso (View v){
-        if (btreturn.isClickable()){
-            Intent ir = new Intent(this,panelRadio.class);
-            startActivity(ir);
-        }
-    }
 
     //AREA PARA EL MENU ACTION BAR
     public boolean onCreateOptionsMenu(Menu menu){

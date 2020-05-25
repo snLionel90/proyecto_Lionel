@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="#EBEEEE"
     tools:context=".iinicios_de_la_radio">
 
     <ScrollView
@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/tv_Iniciosradio"
-                android:textColor="#D1F5A6"
+                android:textColor="#818B74"
                 android:textSize="36sp" />
 
             <TextView
@@ -39,7 +39,7 @@
                 android:layout_marginRight="32dp"
                 android:gravity="center|center_horizontal"
                 android:text="Los primeros antecedentes de la radio datan del siglo XIX, con la invención de la pila voltaica por Alessandro Volta. Desde ese momento se comenzaron a construir los primeros telégrafos, los cuales fueron evolucionando gracias a las aportaciones de Samuel Morse, con el código morse.  En 1876, Graham Bell fue el primer científico británico que descubrió que los sonidos podían ser  escuchados a través de un cable. Pero no fue sino hasta el siglo XX, que Fleming y Fessenden, lograron la transmisión de la voz humana, cuestión que originó el comienzo de ese medio.Durante la década de los años 20 del siglo pasado (1920), solo unos pocos afortunados podían escuchar la radio, la cual estaba compuesta por elementos muy simples, cuando las emisiones fueron a más allá, en cuanto a numero de emisoras, potencia y cobertura, se fue abaratando los costes de producción de la misma, en cuanto las emisoras, solo emitían en AM (Onda Media)  y podía ser recibida con unos receptores muy simples llamados Radio de galena"
-                android:textColor="#FFFFFF"
+                android:textColor="#444141"
                 android:textSize="16sp" />
 
             <Button

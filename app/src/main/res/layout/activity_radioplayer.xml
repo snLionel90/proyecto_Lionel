@@ -77,7 +77,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_span="0"
-                android:background="@android:drawable/ic_media_pause" />
+                android:background="@android:drawable/alert_light_frame"
+                android:onClick="stop" />
 
             <Button
                 android:id="@+id/buttonPlay"

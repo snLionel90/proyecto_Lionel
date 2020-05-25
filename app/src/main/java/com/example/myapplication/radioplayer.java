@@ -36,7 +36,56 @@ public class radioplayer extends AppCompatActivity implements View.OnClickListen
         inicializarComponentes();
         initializarMediaPlayer();
     }
+    private void inicializarComponentes() {
+        bt_play = findViewById(R.id.buttonPlay);
+        bt_stop = findViewById(R.id.buttonStop);
+        bt_regreso = findViewById(R.id.buttonReturn);
 
+        playSeekBar =  findViewById(R.id.progressBar);
+        playSeekBar.setMax(100);
+        playSeekBar.setVisibility(View.INVISIBLE);
+
+        bt_stop.setEnabled(false);
+        bt_play.setOnClickListener(this);
+
+    }
+    //botonera
+    public void onClick(View v) {
+        if (bt_play.isClickable()) {
+            bt_stop.setEnabled(true);
+            bt_play.setEnabled(false);
+
+            playSeekBar.setVisibility(View.VISIBLE);
+            mediaPlayer.prepareAsync();
+            mediaPlayer.setOnPreparedListener(new OnPreparedListener() {
+
+                public void onPrepared(MediaPlayer mp) {
+                    mediaPlayer.start();
+                }
+            });
+        }
+    }
+    public void stop(View v){
+        if (bt_stop.isClickable()) {
+            stopplaying();
+        }
+    }
+
+    private void stopplaying() {
+        if (mediaPlayer.isPlaying())
+        {
+            mediaPlayer.stop();
+        }
+    }
+
+    public void regreso (View v){
+        if (bt_regreso.isClickable()){
+            Intent ir = new Intent(this,panelRadio.class);
+            startActivity(ir);
+            stopplaying();
+        }
+    }
+    //Mediaplayer
     private void  initializarMediaPlayer() {
         mediaPlayer = new MediaPlayer();
         try {
@@ -57,55 +106,7 @@ public class radioplayer extends AppCompatActivity implements View.OnClickListen
         });
     }
 
-    private void inicializarComponentes() {
-        bt_play = findViewById(R.id.buttonPlay);
-        bt_stop = findViewById(R.id.buttonStop);
-        bt_regreso = findViewById(R.id.buttonReturn);
 
-        playSeekBar =  findViewById(R.id.progressBar);
-        playSeekBar.setMax(100);
-        playSeekBar.setVisibility(View.INVISIBLE);
-
-        bt_stop.setEnabled(false);
-        bt_play.setOnClickListener(this);
-
-    }
-    @Override
-    public void onClick(View v) {
-        if (v == bt_play) {
-            startPlaying();
-        } else if (v == bt_stop) {
-            stopPlaying();
-        }
-    }
-    private void startPlaying() {
-        bt_stop.setEnabled(true);
-        bt_play.setEnabled(false);
-
-        playSeekBar.setVisibility(View.VISIBLE);
-        mediaPlayer.prepareAsync();
-        mediaPlayer.setOnPreparedListener(new OnPreparedListener() {
-
-            public void onPrepared(MediaPlayer mp) {
-                mediaPlayer.start();
-            }
-        });
-    }
-    private void stopPlaying() {
-        if (mediaPlayer.isPlaying()) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-            initializarMediaPlayer();
-        }
-        bt_play.setEnabled(true);
-        bt_stop.setEnabled(false);
-    }
-    public void regreso (View v){
-        if (bt_regreso.isClickable()){
-            Intent ir = new Intent(this,panelRadio.class);
-            startActivity(ir);
-        }
-    }
     //AREA PARA EL MENU ACTION BAR
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menus_superior,menu);

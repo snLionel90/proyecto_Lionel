@@ -77,7 +77,8 @@
                 android:id="@+id/bt_stop2r"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:drawable/ic_media_pause" />
+                android:background="@android:drawable/alert_light_frame"
+                android:onClick="stop" />
 
             <Button
                 android:id="@+id/bt_play2"
