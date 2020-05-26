@@ -20,7 +20,7 @@ import java.io.IOException;
 
 public class rp_Los40CL extends AppCompatActivity implements View.OnClickListener {
 
-    Button btplay,btsop,btreturn,btn_web_los40cl;
+    Button btplay40,btsop40,btreturn40,btn_web_los40cl;
     MediaPlayer mediaplay40cl;
     ProgressBar play_Bar40cl;
 
@@ -36,20 +36,22 @@ public class rp_Los40CL extends AppCompatActivity implements View.OnClickListene
 
     }
     private void inicializarComponentes2() {
-        btplay = findViewById(R.id.bt_play2);
-        btsop= findViewById(R.id.bt_stop2r);
-        btreturn = findViewById(R.id.bt_retn);
+        btplay40 = findViewById(R.id.bt_play2);
+        btsop40= findViewById(R.id.bt_stop2r);
+        btreturn40 = findViewById(R.id.bt_retn);
         btn_web_los40cl = findViewById(R.id.buttonWebLos40Cl);
-        play_Bar40cl= findViewById(R.id.progressBar2);
+        play_Bar40cl= findViewById(R.id.progressBarLos40CL);
         play_Bar40cl.setMax(100);
         play_Bar40cl.setVisibility(View.INVISIBLE);
 
-        btplay.setOnClickListener(this);
+        btplay40.setOnClickListener(this);
     }
     //Botonera
     @Override
     public void onClick(View v) {
-        if (btplay.isClickable()) {
+        if (btplay40.isClickable()) {
+            btsop40.setEnabled(true);
+            btplay40.setEnabled(false);
             play_Bar40cl.setVisibility(View.VISIBLE);
             mediaplay40cl.prepareAsync();
             mediaplay40cl.setOnPreparedListener(new OnPreparedListener() {
@@ -61,7 +63,10 @@ public class rp_Los40CL extends AppCompatActivity implements View.OnClickListene
         }
     }
     public void stop (View v){
-        if (btsop.isClickable()){
+        if (btsop40.isClickable()){
+            btsop40.setEnabled(true);
+            btplay40.setEnabled(false);
+            play_Bar40cl.setVisibility(View.INVISIBLE);
             detener();
         }
     }
@@ -74,7 +79,7 @@ public class rp_Los40CL extends AppCompatActivity implements View.OnClickListene
     }
 
     public void regreso (View v){
-        if (btreturn.isClickable()){
+        if (btreturn40.isClickable()){
             Intent ir = new Intent(this,panelRadio.class);
             startActivity(ir);
             detener();

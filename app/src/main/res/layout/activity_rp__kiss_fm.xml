@@ -77,7 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/alert_light_frame"
-               />
+                android:onClick="stop" />
 
             <Button
                 android:id="@+id/bt_playKiss"
@@ -86,11 +86,11 @@
                 android:background="@android:drawable/ic_media_play" />
 
             <Button
-                android:id="@+id/bt_retorno3"
+                android:id="@+id/bt_retornoKiss"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/ic_menu_revert"
-                 />
+                android:onClick="regresar" />
 
             <Button
                 android:id="@+id/buttonWebKissFM"
@@ -99,6 +99,7 @@
                 android:background="@android:drawable/ic_menu_info_details"
 
 
+                android:onClick="ir_webKissFM"
                 android:text="@string/masInfo" />
         </TableRow>
 

@@ -20,8 +20,8 @@ import android.media.MediaPlayer.OnPreparedListener;
 import java.io.IOException;
 
 public class radioplayer extends AppCompatActivity implements View.OnClickListener {
-    Button bt_play,bt_stop,bt_regreso,bt_ir_web;
-    MediaPlayer mediaPlayer;
+    Button bt_playRNE,bt_stopRNE,bt_regresoRNE,bt_ir_webRNE;
+    MediaPlayer mediaPlayerRNE;
     ProgressBar playSeekBar;
 
     @Override
@@ -36,44 +36,47 @@ public class radioplayer extends AppCompatActivity implements View.OnClickListen
         initializarMediaPlayer();
     }
     private void inicializarComponentes() {
-        bt_play = findViewById(R.id.buttonPlay);
-        bt_stop = findViewById(R.id.buttonStop);
-        bt_regreso = findViewById(R.id.buttonReturn);
-        bt_ir_web = findViewById(R.id.buttonWebRNE);
-        playSeekBar =  findViewById(R.id.progressBar);
+        bt_playRNE = findViewById(R.id.buttonPlay);
+        bt_stopRNE = findViewById(R.id.buttonStop);
+        bt_regresoRNE = findViewById(R.id.buttonReturn);
+        bt_ir_webRNE = findViewById(R.id.buttonWebRNE);
+        playSeekBar =  findViewById(R.id.progressBarRNE);
         playSeekBar.setMax(100);
         playSeekBar.setVisibility(View.INVISIBLE);
 
-        bt_stop.setEnabled(false);
-        bt_play.setOnClickListener(this);
+        bt_stopRNE.setEnabled(false);
+        bt_playRNE.setOnClickListener(this);
 
     }
     //botonera
     public void onClick(View v) {
-        if (bt_play.isClickable()) {
-            bt_stop.setEnabled(true);
-            bt_play.setEnabled(false);
+        if (bt_playRNE.isClickable()) {
+            bt_stopRNE.setEnabled(true);
+            bt_playRNE.setEnabled(false);
 
             playSeekBar.setVisibility(View.VISIBLE);
-            mediaPlayer.prepareAsync();
-            mediaPlayer.setOnPreparedListener(new OnPreparedListener() {
+            mediaPlayerRNE.prepareAsync();
+            mediaPlayerRNE.setOnPreparedListener(new OnPreparedListener() {
 
                 public void onPrepared(MediaPlayer mp) {
-                    mediaPlayer.start();
+                    mediaPlayerRNE.start();
                 }
             });
         }
     }
     public void stop(View v){
-        if (bt_stop.isClickable()) {
+        if (bt_stopRNE.isClickable()) {
+            bt_stopRNE.setEnabled(true);
+            bt_playRNE.setEnabled(false);
+            playSeekBar.setVisibility(View.INVISIBLE);
             stopplaying();
         }
     }
 
     private void stopplaying() {
-        if (mediaPlayer.isPlaying())
+        if (mediaPlayerRNE.isPlaying())
         {
-            mediaPlayer.stop();
+            mediaPlayerRNE.stop();
         }
     }
     public void ir_webRNE(View v){
@@ -86,7 +89,7 @@ public class radioplayer extends AppCompatActivity implements View.OnClickListen
         }
     }
     public void regreso (View v){
-        if (bt_regreso.isClickable()){
+        if (bt_regresoRNE.isClickable()){
             Intent ir = new Intent(this,panelRadio.class);
             startActivity(ir);
             stopplaying();
@@ -94,9 +97,9 @@ public class radioplayer extends AppCompatActivity implements View.OnClickListen
     }
     //Mediaplayer
     private void  initializarMediaPlayer() {
-        mediaPlayer = new MediaPlayer();
+        mediaPlayerRNE = new MediaPlayer();
         try {
-          mediaPlayer.setDataSource("https://rne.rtveradio.cires21.com/rne_hc.mp3");
+          mediaPlayerRNE.setDataSource("https://rne.rtveradio.cires21.com/rne_hc.mp3");
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         } catch (IllegalStateException e) {
@@ -105,7 +108,7 @@ public class radioplayer extends AppCompatActivity implements View.OnClickListen
             e.printStackTrace();
         }
 
-        mediaPlayer.setOnBufferingUpdateListener(new OnBufferingUpdateListener() {
+        mediaPlayerRNE.setOnBufferingUpdateListener(new OnBufferingUpdateListener() {
             public void onBufferingUpdate(MediaPlayer mp, int percent) {
                 playSeekBar.setSecondaryProgress(percent);
                 Log.i("Buffering", "" + percent);

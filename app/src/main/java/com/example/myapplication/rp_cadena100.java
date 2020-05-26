@@ -18,7 +18,7 @@ import android.widget.Toast;
 import java.io.IOException;
 
 public class rp_cadena100 extends AppCompatActivity implements View.OnClickListener {
-    Button btplay,btstop,btreturn,btn_web_cadena100;
+    Button btplay100,btstop100,btreturn100,btn_web_cadena100;
     MediaPlayer mediaplayC100;
     ProgressBar play_BarC100;
     @Override
@@ -26,10 +26,69 @@ public class rp_cadena100 extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rp_cadena100);
         WebView webView = this.findViewById(R.id.webViewCadena100);
-        webView.loadUrl("https://1.bp.blogspot.com/-aYN6SOV3-U8/TxZbzBNF65I/AAAAAAAAAzM/G75OfJYuTC0/s1600/cadena100_logo_detail.png");
+        webView.loadUrl("https://1.bp.blogspot.com/-XaarLJULT1s/Tvkv3cmRDzI/AAAAAAAABmA/C4Tb5MBQs_w/s1600/cadena+100.jpg");
 
         inicializarComponentesC100();
         iniciarReproductorC100();
+    }
+    private void inicializarComponentesC100() {
+        btplay100 = findViewById(R.id.bt_playC100);
+        btstop100= findViewById(R.id.bt_stopC100);
+        btreturn100 = findViewById(R.id.bt_retorno100);
+        btn_web_cadena100 = findViewById(R.id.buttonWebcaden100);
+        play_BarC100 = findViewById(R.id.progressBarC100);
+        play_BarC100.setMax(100);
+        play_BarC100.setVisibility(View.INVISIBLE);
+        btplay100.setOnClickListener(this);
+    }
+    //7tabla de botones
+    @Override
+    public void onClick(View v) {
+        if (btplay100.isClickable()) {
+            btstop100.setEnabled(true);
+            btplay100.setEnabled(false);
+            play_BarC100.setVisibility(View.VISIBLE);
+            mediaplayC100.prepareAsync();
+            mediaplayC100.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+
+                public void onPrepared(MediaPlayer mp3) {
+                    mediaplayC100.start();
+                }
+            });
+        }
+    }
+    public void stop3 (View v){
+        if (btstop100.isClickable()){
+            btstop100.setEnabled(true);
+            btplay100.setEnabled(false);
+            play_BarC100.setVisibility(View.INVISIBLE);
+            detener3();
+        }
+    }
+
+    private void detener3() {
+        if (mediaplayC100.isPlaying())
+        {
+            mediaplayC100.stop();
+        }
+    }
+
+    public void regreso3 (View v){
+        if (btreturn100.isClickable()){
+            Intent ir = new Intent(this,panelRadio.class);
+            startActivity(ir);
+            detener3();
+        }
+    }
+
+    public void ir_webCadena100(View v){
+        if (v.getId() == R.id.buttonWebcaden100) {
+            Uri Webpage = Uri.parse("https://www.cadena100.es/");
+            Intent intent = new Intent(Intent.ACTION_VIEW, Webpage);
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
+        }
     }
 
     private void iniciarReproductorC100() {
@@ -52,60 +111,7 @@ public class rp_cadena100 extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    private void inicializarComponentesC100() {
-        btplay = findViewById(R.id.bt_playC100);
-        btstop= findViewById(R.id.bt_stopC100);
-        btreturn = findViewById(R.id.bt_retorno2);
-        btn_web_cadena100 = findViewById(R.id.buttonWebcaden100);
-        play_BarC100 = findViewById(R.id.progressBar2);
-        play_BarC100.setMax(100);
-        play_BarC100.setVisibility(View.INVISIBLE);
-        btplay.setOnClickListener(this);
-    }
-//7tabla de botones
-    @Override
-    public void onClick(View v) {
-        if (btplay.isClickable()) {
-            play_BarC100.setVisibility(View.VISIBLE);
-            mediaplayC100.prepareAsync();
-            mediaplayC100.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
 
-                public void onPrepared(MediaPlayer mp1) {
-                    mediaplayC100.start();
-                }
-            });
-        }
-    }
-    public void stop (View v){
-        if (btstop.isClickable()){
-            detener();
-        }
-    }
-
-    private void detener() {
-        if (mediaplayC100.isPlaying())
-        {
-            mediaplayC100.stop();
-        }
-    }
-
-    public void regreso (View v){
-        if (btreturn.isClickable()){
-            Intent ir = new Intent(this,panelRadio.class);
-            startActivity(ir);
-            detener();
-        }
-    }
-
-    public void ir_webCadena100(View v){
-        if (v.getId() == R.id.buttonWebcaden100) {
-            Uri Webpage = Uri.parse("https://www.cadena100.es/");
-            Intent intent = new Intent(Intent.ACTION_VIEW, Webpage);
-            if (intent.resolveActivity(getPackageManager()) != null) {
-                startActivity(intent);
-            }
-        }
-    }
     //AREA PARA EL MENU ACTION BAR
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menus_superior,menu);

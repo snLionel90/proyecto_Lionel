@@ -18,9 +18,9 @@ import android.widget.Toast;
 import java.io.IOException;
 
 public class rp_rockFM extends AppCompatActivity implements View.OnClickListener {
-    Button btplay,btstop,btreturn,btn_rockFm;
-    MediaPlayer mediaplay;
-    ProgressBar play_Bar;
+    Button btplayR,btstopR,btreturn,btn_rockFm;
+    MediaPlayer mediaplayRockFM;
+    ProgressBar play_BarR;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,39 +34,44 @@ public class rp_rockFM extends AppCompatActivity implements View.OnClickListener
     }
     //inicializacion de componentes
     private void inicializarComponentes() {
-        btplay = findViewById(R.id.buttonSplayStream);
-        btstop= findViewById(R.id.buttonStopStream);
+        btplayR = findViewById(R.id.buttonSplayStream);
+        btstopR= findViewById(R.id.buttonStopStream);
         btreturn = findViewById(R.id.buttonreturnToPanel);
         btn_rockFm =findViewById(R.id.buttonWebRockFM);
-        play_Bar = findViewById(R.id.progressBarRockFM);
-        play_Bar.setMax(100);
-        play_Bar.setVisibility(View.INVISIBLE);
+        play_BarR = findViewById(R.id.progressBarRockFM);
+        play_BarR.setMax(100);
+        play_BarR.setVisibility(View.INVISIBLE);
 
-        btplay.setOnClickListener(this);
+        btplayR.setOnClickListener(this);
     }
     //BOTONERA
     @Override
     public void onClick(View v) {
-        if (btplay.isClickable()) {
-            play_Bar.setVisibility(View.VISIBLE);
-            mediaplay.prepareAsync();
-            mediaplay.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+        if (btplayR.isClickable()) {
+            btstopR.setEnabled(true);
+            btplayR.setEnabled(false);
+            play_BarR.setVisibility(View.VISIBLE);
+            mediaplayRockFM.prepareAsync();
+            mediaplayRockFM.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
 
                 public void onPrepared(MediaPlayer mp1) {
-                    mediaplay.start();
+                    mediaplayRockFM.start();
                 }
             }); //este boton activa el reproductor de radio
         }
     }
     public void stop (View v){
+        btstopR.setEnabled(true);
+        btplayR.setEnabled(false);
+        play_BarR.setVisibility(View.INVISIBLE);
         detener(); //boton de detencion
     }
 
     private void detener() { //metodo compartido de stop playing
-        if (btstop.isClickable()){
-            if (mediaplay.isPlaying())
+        if (btstopR.isClickable()){
+            if (mediaplayRockFM.isPlaying())
             {
-                mediaplay.stop();
+                mediaplayRockFM.stop();
             }
         }
     }
@@ -89,9 +94,9 @@ public class rp_rockFM extends AppCompatActivity implements View.OnClickListener
     }
     //inicializa el media player con este metodo
     private void inicializarMediaPlayer() {
-        mediaplay = new MediaPlayer();
+        mediaplayRockFM = new MediaPlayer();
         try {
-            mediaplay.setDataSource("https://rockfm-cope-rrcast.flumotion.com/cope/rockfm.mp3");
+            mediaplayRockFM.setDataSource("https://rockfm-cope-rrcast.flumotion.com/cope/rockfm.mp3");
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         } catch (IllegalStateException e) {
@@ -100,9 +105,9 @@ public class rp_rockFM extends AppCompatActivity implements View.OnClickListener
             e.printStackTrace();
         }
 //inicia el buffering
-        mediaplay.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
+        mediaplayRockFM.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
             public void onBufferingUpdate(MediaPlayer mp1, int percent) {
-                play_Bar.setSecondaryProgress(percent);
+                play_BarR.setSecondaryProgress(percent);
                 Log.i("Buffering", "" + percent);
             }
         });

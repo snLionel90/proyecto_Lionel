@@ -8,7 +8,7 @@
     tools:context=".rp_rockFM">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView40"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="92dp"
@@ -33,7 +33,7 @@
         android:layout_marginRight="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4">
+        app:layout_constraintTop_toBottomOf="@+id/textView40">
 
     </WebView>
 
