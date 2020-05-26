@@ -48,36 +48,10 @@
                 android:background="@android:drawable/ic_menu_search"
                 android:text="@string/bt_buscar" />
 
-            <LinearLayout
+            <ListView
+                android:id="@+id/listaresultados"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <EditText
-                    android:id="@+id/editTextNombre_emisora"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/ednombreemisora"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/editTextCiudad"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/ed_ciudad"
-                    android:inputType="textPersonName" />
-
-                <EditText
-                    android:id="@+id/editTextStream"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/ed_direccion_Stream"
-                    android:inputType="textPersonName" />
-
-            </LinearLayout>
+                android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/buttonretro"

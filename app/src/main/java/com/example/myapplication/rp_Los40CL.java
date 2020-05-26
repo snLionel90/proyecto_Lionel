@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -19,7 +20,7 @@ import java.io.IOException;
 
 public class rp_Los40CL extends AppCompatActivity implements View.OnClickListener {
 
-    Button btplay,btsop,btreturn;
+    Button btplay,btsop,btreturn,btn_web_los40cl;
     MediaPlayer mediaplay;
     ProgressBar play_Bar;
 
@@ -38,7 +39,7 @@ public class rp_Los40CL extends AppCompatActivity implements View.OnClickListene
         btplay = findViewById(R.id.bt_play2);
         btsop= findViewById(R.id.bt_stop2r);
         btreturn = findViewById(R.id.bt_retn);
-
+        btn_web_los40cl = findViewById(R.id.buttonWebLos40Cl);
         play_Bar = findViewById(R.id.progressBar2);
         play_Bar.setMax(100);
         play_Bar.setVisibility(View.INVISIBLE);
@@ -80,6 +81,15 @@ public class rp_Los40CL extends AppCompatActivity implements View.OnClickListene
         }
     }
 
+    public void ir_web40(View v){
+        if (v.getId() == R.id.buttonWebLos40Cl) {
+            Uri Webpage = Uri.parse("https://play.los40.com/emisora/los40_classic/");
+            Intent intent = new Intent(Intent.ACTION_VIEW, Webpage);
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
+        }
+    }
     //MEdiaplayer
     private void initializarMediaPlayer2() {
         mediaplay = new MediaPlayer();

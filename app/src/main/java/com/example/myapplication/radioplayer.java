@@ -3,8 +3,8 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.media.MediaPlayer.OnBufferingUpdateListener;
@@ -21,7 +20,7 @@ import android.media.MediaPlayer.OnPreparedListener;
 import java.io.IOException;
 
 public class radioplayer extends AppCompatActivity implements View.OnClickListener {
-    Button bt_play,bt_stop,bt_regreso;
+    Button bt_play,bt_stop,bt_regreso,bt_ir_web;
     MediaPlayer mediaPlayer;
     ProgressBar playSeekBar;
 
@@ -40,7 +39,7 @@ public class radioplayer extends AppCompatActivity implements View.OnClickListen
         bt_play = findViewById(R.id.buttonPlay);
         bt_stop = findViewById(R.id.buttonStop);
         bt_regreso = findViewById(R.id.buttonReturn);
-
+        bt_ir_web = findViewById(R.id.buttonWebRNE);
         playSeekBar =  findViewById(R.id.progressBar);
         playSeekBar.setMax(100);
         playSeekBar.setVisibility(View.INVISIBLE);
@@ -77,7 +76,15 @@ public class radioplayer extends AppCompatActivity implements View.OnClickListen
             mediaPlayer.stop();
         }
     }
-
+    public void ir_webRNE(View v){
+        if (v.getId() == R.id.buttonWebRNE) {
+            Uri Webpage = Uri.parse("https://www.rtve.es/radio/");
+            Intent intent = new Intent(Intent.ACTION_VIEW, Webpage);
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
+        }
+    }
     public void regreso (View v){
         if (bt_regreso.isClickable()){
             Intent ir = new Intent(this,panelRadio.class);

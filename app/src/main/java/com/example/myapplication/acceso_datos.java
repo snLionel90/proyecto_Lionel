@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -27,30 +30,30 @@ import org.json.JSONObject;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 
 public class acceso_datos extends AppCompatActivity {
-    EditText ed_nom_emisora, ed_ciudad, ed_introducirNombre, ed_dir_stream;
+    EditText ed_introducirNombre;
     Button bt_buscar,bt_regresar;
-    RequestQueue requestQueue;
+    ListView listaResultado;
+    String IP_servidor ="http://192.168.1.133:8080/DBradio/buscar_emiosras.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acceso_datos);
         ed_introducirNombre = findViewById(R.id.editTextbuscar_emisora);
-        ed_nom_emisora = findViewById(R.id.editTextNombre_emisora);
-        ed_ciudad = findViewById(R.id.editTextCiudad);
-        ed_dir_stream = findViewById(R.id.editTextStream);
+        listaResultado = findViewById(R.id.listaresultados);
         bt_buscar  = findViewById(R.id.buttonBuscar);
         bt_regresar = findViewById(R.id.buttonretro);
 
         bt_buscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buscarEmisora("http://192.168.1.133:8080/DBradio/buscar_emiosras.php?nombre_emisora="+ed_introducirNombre.getText()+"");
+                buscarEmisora(IP_servidor+ed_introducirNombre.getText()+"");
             }
         });
     }
@@ -61,35 +64,45 @@ public class acceso_datos extends AppCompatActivity {
         }
     }
 
-    private void buscarEmisora (String URL)
+    private void buscarEmisora (String IP)
     {
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
+        Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+        RequestQueue queue = Volley.newRequestQueue(this);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, IP, new Response.Listener<String>() {
             @Override
-            public void onResponse(JSONArray response) {
-                JSONObject jsonObject = null;
-                for (int i = 0; i < response.length(); i++) {
+            public void onResponse(String response) {
+                response = response.replace("][",",");
+                if (response.length()>0){
                     try {
-                        jsonObject = response.getJSONObject(i);
-                        ed_nom_emisora.setText(jsonObject.getString("nombre emisora"));
-                        ed_ciudad.setText(jsonObject.getString("ciudad"));
-                        ed_dir_stream.setText(jsonObject.getString("direccion stream"));
-
+                        JSONArray ja = new JSONArray(response);
+                        Log.i("sizejson",""+ja.length());
+                        ver_datos_consulta(ja);
                     } catch (JSONException e) {
-                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
                     }
                 }
             }
-        }, new Response.ErrorListener() {
+        }, new Response.ErrorListener(){
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),"Error de conexion",Toast.LENGTH_SHORT).show();
             }
         });
-
-        requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(jsonArrayRequest);
+        queue.add(stringRequest);
     }
 
+    private void ver_datos_consulta(JSONArray ja) {
+        ArrayList<String> lista = new ArrayList<>();
+        for(int i=0;i<ja.length();i+=4){
+            try {
+
+                lista.add(ja.getString(i)+" "+ja.getString(i+1)+" "+ja.getString(i+2)+" "+ja.getString(i+3));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, lista);
+        listaResultado.setAdapter(adaptador);
+    }
 
     //AREA PARA EL MENU ACTION BAR
     public boolean onCreateOptionsMenu(Menu menu){

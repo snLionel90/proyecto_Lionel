@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">Radio.es</string>
     <string name="txt1">"Bienvenido/a a la aplicación de Radio.es. \n Pulse Continuar. </string>
     <string name="titulo">"Radio.es </string>
@@ -20,8 +21,8 @@
     <string name="tv4">Inicios de la radio</string>
     <string name="tituloIniciosHistoria">Bienvenido/a a la historia de la radio, pulsa un elemento de la lista para consulta</string>
     <string name="tv_Iniciosradio">Inicios de la radio</string>
-    <string name="tv_evoluciion_radio">Ir a Evolucion</string>
-    <string name="tv_futuro_radio">Ir a Futuro</string>
+    <string name="tv_evoluciion_radio">Evolucion de la radio</string>
+    <string name="tv_futuro_radio">Futuro de la radio</string>
     <string name="tv_panel">Seleccione una emisora para escuchar, o ve a historia para ver la evolucion de la radio como medio de comunicacion</string>
     <string name="bt_enviarCom">Enviar</string>
     <string name="btcomentar">Comentar</string>
@@ -48,6 +49,5 @@
     <string name="ed_ciudad">Ciudad</string>
     <string name="ed_direccion_Stream">direccion</string>
     <string name="ed_comentario_usuario"> </string>
-
 
 </resources>

@@ -57,8 +57,8 @@
         app:layout_constraintTop_toBottomOf="@+id/webViewrockfm" />/>
 
     <TableLayout
-        android:layout_width="265dp"
-        android:layout_height="52dp"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
@@ -91,6 +91,13 @@
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/ic_menu_revert"
                 android:onClick="regreso" />
+
+            <Button
+                android:id="@+id/buttonWebRockFM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/ic_menu_info_details"
+                android:onClick="ir_webRockFM" />
         </TableRow>
 
     </TableLayout>

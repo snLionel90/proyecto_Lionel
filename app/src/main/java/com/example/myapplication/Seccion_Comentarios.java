@@ -27,8 +27,8 @@ import java.util.Map;
 public class Seccion_Comentarios extends AppCompatActivity {
     TextView titleComent;
     EditText Ed_nombre,Ed_apellido,Ed_edad,Ed_comentario;
-    Button btnEnviar;
-
+    Button btnEnviar,btverdatos,btatras;
+    String GET = "http://192.168.1.133:8080/DBradio/insertar_usuarios.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,16 +38,30 @@ public class Seccion_Comentarios extends AppCompatActivity {
         Ed_apellido = findViewById(R.id.editTextApellido);
         Ed_edad = findViewById(R.id.editTextEdad);
         Ed_comentario = findViewById(R.id.editTextComentario);
-
+        btverdatos = findViewById(R.id.buttonVerCom);
+        btatras = findViewById(R.id.buttonVolver);
         btnEnviar=findViewById(R.id.buttonSend);
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ejecutarServicio("http://192.168.1.133:8080/usuarios_radio/insertar_usuarios.php");
+                ejecutarServicio(GET);
             }
         });
     }
+    public void verdatos(View v){
+        if (btverdatos.isClickable()){
+            Intent intent_index  = new Intent(this, acceso_datos.class);
+            startActivity(intent_index);
+        }
 
+    }
+    public void atras(View v){
+        if (btatras.isClickable()){
+            Intent intent_index  = new Intent(this, panelRadio.class);
+            startActivity(intent_index);
+        }
+
+    }
     private void ejecutarServicio(String URL){
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override

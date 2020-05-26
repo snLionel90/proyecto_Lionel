@@ -92,7 +92,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/tv_futuro_radio"
                 android:textColor="#FFEB3B"
-                android:textSize="30sp" />
+                android:textSize="24sp" />
         </TableRow>
     </TableLayout>
 
