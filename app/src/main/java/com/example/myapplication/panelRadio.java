@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class panelRadio extends AppCompatActivity implements AdapterView.OnItemClickListener, View.OnClickListener {
-    String[] radios = {"Los 40CL", "Rock Fm", "Cadena 100", "Kiss FM","Europa FM", "RNE Radio Nacional","Onda Melodia","Radio 4G"};
+    String[] radios = {"Los 40CL", "Rock Fm", "Cadena 100","Europa FM", "RNE Radio Nacional","Onda Melodia","Radio 4G"};
     ListView lista;
     TextView tv_panel;
     Button bt_inicioMain, bt_Historia, bt_comments;
@@ -68,7 +68,7 @@ public class panelRadio extends AppCompatActivity implements AdapterView.OnItemC
             startActivity(myIntent2); //rock fm
 
         } else if (position == 2) {
-            Intent myIntent3 = new Intent(view.getContext(), radioplayer.class);
+            Intent myIntent3 = new Intent(view.getContext(), rp_cadena100.class);
             startActivity(myIntent3); //Cadena 100
 
         } else if (position == 3) {

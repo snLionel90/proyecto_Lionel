@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -17,25 +16,26 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
-public class rp_cadena100 extends AppCompatActivity implements View.OnClickListener {
-    Button btplay,btstop,btreturn,btn_web_cadena100;
-    MediaPlayer mediaplayC100;
-    ProgressBar play_BarC100;
+public class rp_KissFM extends AppCompatActivity implements View.OnClickListener {
+    Button btplay,btstop,btreturn,btn_web_KissFM;
+    MediaPlayer mediaplayKissFM;
+    ProgressBar play_BarKissFM;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rp_cadena100);
-        WebView webView = this.findViewById(R.id.webViewCadena100);
-        webView.loadUrl("https://1.bp.blogspot.com/-aYN6SOV3-U8/TxZbzBNF65I/AAAAAAAAAzM/G75OfJYuTC0/s1600/cadena100_logo_detail.png");
+        setContentView(R.layout.activity_rp__kiss_fm);
 
-        inicializarComponentesC100();
-        iniciarReproductorC100();
+        WebView webView = this.findViewById(R.id.webViewKissFM);
+        webView.loadUrl("https://static-1.ivoox.com/canales/0/3/7/9/7711470749730_XXL.jpg"); //carga una imagen remota
+
+        inicializarComponentesKissFM(); //inicializalos componentes de la pagina
+        inicializarMPlayerKissFM();
     }
 
-    private void iniciarReproductorC100() {
-        mediaplayC100= new MediaPlayer();
+    private void inicializarMPlayerKissFM() {
+        mediaplayKissFM= new MediaPlayer();
         try {
-            mediaplayC100.setDataSource("https://cadena100-cope-rrcast.flumotion.com/cope/cadena100-low.mp3");
+            mediaplayKissFM.setDataSource("http://kissfm.kissfmradio.cires21.com/kissfm.mp3");
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         } catch (IllegalStateException e) {
@@ -44,34 +44,34 @@ public class rp_cadena100 extends AppCompatActivity implements View.OnClickListe
             e.printStackTrace();
         }
 
-        mediaplayC100.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
+        mediaplayKissFM.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
             public void onBufferingUpdate(MediaPlayer mp1, int percent) {
-                play_BarC100.setSecondaryProgress(percent);
+                play_BarKissFM.setSecondaryProgress(percent);
                 Log.i("Buffering", "" + percent);
             }
         });
     }
 
-    private void inicializarComponentesC100() {
-        btplay = findViewById(R.id.bt_playC100);
-        btstop= findViewById(R.id.bt_stopC100);
+    private void inicializarComponentesKissFM() {
+        btplay = findViewById(R.id.bt_playKiss);
+        btstop= findViewById(R.id.bt_stopKiss);
         btreturn = findViewById(R.id.bt_retorno2);
-        btn_web_cadena100 = findViewById(R.id.buttonWebcaden100);
-        play_BarC100 = findViewById(R.id.progressBar2);
-        play_BarC100.setMax(100);
-        play_BarC100.setVisibility(View.INVISIBLE);
+        btn_web_KissFM = findViewById(R.id.buttonWebKissFM);
+        play_BarKissFM = findViewById(R.id.progressBarKissFM);
+        play_BarKissFM.setMax(100);
+        play_BarKissFM.setVisibility(View.INVISIBLE);
         btplay.setOnClickListener(this);
     }
-//7tabla de botones
+    //7tabla de botones
     @Override
     public void onClick(View v) {
         if (btplay.isClickable()) {
-            play_BarC100.setVisibility(View.VISIBLE);
-            mediaplayC100.prepareAsync();
-            mediaplayC100.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            play_BarKissFM.setVisibility(View.VISIBLE);
+            mediaplayKissFM.prepareAsync();
+            mediaplayKissFM.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
 
                 public void onPrepared(MediaPlayer mp1) {
-                    mediaplayC100.start();
+                    mediaplayKissFM.start();
                 }
             });
         }
@@ -83,9 +83,9 @@ public class rp_cadena100 extends AppCompatActivity implements View.OnClickListe
     }
 
     private void detener() {
-        if (mediaplayC100.isPlaying())
+        if (mediaplayKissFM.isPlaying())
         {
-            mediaplayC100.stop();
+            mediaplayKissFM.stop();
         }
     }
 
@@ -94,16 +94,6 @@ public class rp_cadena100 extends AppCompatActivity implements View.OnClickListe
             Intent ir = new Intent(this,panelRadio.class);
             startActivity(ir);
             detener();
-        }
-    }
-
-    public void ir_webCadena100(View v){
-        if (v.getId() == R.id.buttonWebcaden100) {
-            Uri Webpage = Uri.parse("https://www.cadena100.es/");
-            Intent intent = new Intent(Intent.ACTION_VIEW, Webpage);
-            if (intent.resolveActivity(getPackageManager()) != null) {
-                startActivity(intent);
-            }
         }
     }
     //AREA PARA EL MENU ACTION BAR

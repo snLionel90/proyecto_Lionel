@@ -21,8 +21,8 @@ import java.io.IOException;
 public class rp_Los40CL extends AppCompatActivity implements View.OnClickListener {
 
     Button btplay,btsop,btreturn,btn_web_los40cl;
-    MediaPlayer mediaplay;
-    ProgressBar play_Bar;
+    MediaPlayer mediaplay40cl;
+    ProgressBar play_Bar40cl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +40,9 @@ public class rp_Los40CL extends AppCompatActivity implements View.OnClickListene
         btsop= findViewById(R.id.bt_stop2r);
         btreturn = findViewById(R.id.bt_retn);
         btn_web_los40cl = findViewById(R.id.buttonWebLos40Cl);
-        play_Bar = findViewById(R.id.progressBar2);
-        play_Bar.setMax(100);
-        play_Bar.setVisibility(View.INVISIBLE);
+        play_Bar40cl= findViewById(R.id.progressBar2);
+        play_Bar40cl.setMax(100);
+        play_Bar40cl.setVisibility(View.INVISIBLE);
 
         btplay.setOnClickListener(this);
     }
@@ -50,12 +50,12 @@ public class rp_Los40CL extends AppCompatActivity implements View.OnClickListene
     @Override
     public void onClick(View v) {
         if (btplay.isClickable()) {
-            play_Bar.setVisibility(View.VISIBLE);
-            mediaplay.prepareAsync();
-            mediaplay.setOnPreparedListener(new OnPreparedListener() {
+            play_Bar40cl.setVisibility(View.VISIBLE);
+            mediaplay40cl.prepareAsync();
+            mediaplay40cl.setOnPreparedListener(new OnPreparedListener() {
 
                 public void onPrepared(MediaPlayer mp1) {
-                    mediaplay.start();
+                    mediaplay40cl.start();
                 }
             });
         }
@@ -67,9 +67,9 @@ public class rp_Los40CL extends AppCompatActivity implements View.OnClickListene
     }
 
     private void detener() {
-        if (mediaplay.isPlaying())
+        if (mediaplay40cl.isPlaying())
         {
-            mediaplay.stop();
+            mediaplay40cl.stop();
         }
     }
 
@@ -92,9 +92,9 @@ public class rp_Los40CL extends AppCompatActivity implements View.OnClickListene
     }
     //MEdiaplayer
     private void initializarMediaPlayer2() {
-        mediaplay = new MediaPlayer();
+        mediaplay40cl = new MediaPlayer();
         try {
-            mediaplay.setDataSource("http://208.92.53.81:3690/LOS40_CLASSIC_SC");
+            mediaplay40cl.setDataSource("http://208.92.53.81:3690/LOS40_CLASSIC_SC");
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         } catch (IllegalStateException e) {
@@ -103,9 +103,9 @@ public class rp_Los40CL extends AppCompatActivity implements View.OnClickListene
             e.printStackTrace();
         }
 
-        mediaplay.setOnBufferingUpdateListener(new OnBufferingUpdateListener() {
+        mediaplay40cl.setOnBufferingUpdateListener(new OnBufferingUpdateListener() {
             public void onBufferingUpdate(MediaPlayer mp1, int percent) {
-                play_Bar.setSecondaryProgress(percent);
+                play_Bar40cl.setSecondaryProgress(percent);
                 Log.i("Buffering", "" + percent);
             }
         });

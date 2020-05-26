@@ -72,7 +72,7 @@
             <EditText
                 android:id="@+id/editTextComentario"
                 android:layout_width="match_parent"
-                android:layout_height="82dp"
+                android:layout_height="58dp"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/ed_cometario"
@@ -102,7 +102,7 @@
 
             <Button
                 android:id="@+id/buttonVerCom"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="70dp"
                 android:layout_marginTop="1dp"
@@ -112,6 +112,7 @@
                 app:layout_constraintEnd_toEndOf="@id/textViewInfoBuscar"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewInfoBuscar" />
+
         </LinearLayout>
     </ScrollView>
 
