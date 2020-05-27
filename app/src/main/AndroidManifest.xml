@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".rp_KissFM"></activity>
+        <activity android:name=".rp_MelodiaFM"></activity>
+        <activity android:name=".rp_KissFM" />
         <activity android:name=".rp_cadena100" />
         <activity android:name=".rp_rockFM" />
         <activity android:name=".rp_Los40CL" />
