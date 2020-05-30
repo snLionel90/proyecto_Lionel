@@ -29,6 +29,7 @@ public class rp_MelodiaFM extends AppCompatActivity implements View.OnClickListe
         webView.loadUrl("https://upload.wikimedia.org/wikipedia/commons/e/e3/MelodiaFM.png");
 
         inicializarComponentes();
+        inicializarMediaPlayer();
     }
     //inicializacion de componentes
     private void inicializarComponentes() {
@@ -58,8 +59,8 @@ public class rp_MelodiaFM extends AppCompatActivity implements View.OnClickListe
         }
     }
     public void stop (View v){
-        btstopMelodia.setEnabled(true);
-        btplayMelodia.setEnabled(false);
+        btstopMelodia.setEnabled(false);
+        btplayMelodia.setEnabled(true);
         play_BarML.setVisibility(View.INVISIBLE);
         detener(); //boton de detencion
     }
@@ -106,7 +107,7 @@ public class rp_MelodiaFM extends AppCompatActivity implements View.OnClickListe
         mediaplayMelodiaFM.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
             public void onBufferingUpdate(MediaPlayer mp1, int percent) {
                 play_BarML.setSecondaryProgress(percent);
-                Log.i("Buffering", "Cargando transmision" + percent);
+                Log.i("Buffering", "" + percent);
             }
         });
     }
@@ -133,11 +134,7 @@ public class rp_MelodiaFM extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "Version de la aplicacion: 1.0.2020",Toast.LENGTH_LONG).show();
             return true;
         }
-        if (id==R.id.salir_it){
-            Toast.makeText(this, "Gracias por utilizar la aplicacion",Toast.LENGTH_LONG).show();
-            finish();
-            return true;
-        }
+
         return  super.onOptionsItemSelected(item);
     }
 

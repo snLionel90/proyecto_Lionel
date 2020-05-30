@@ -66,8 +66,8 @@ public class radioplayer extends AppCompatActivity implements View.OnClickListen
     }
     public void stop(View v){
         if (bt_stopRNE.isClickable()) {
-            bt_stopRNE.setEnabled(true);
-            bt_playRNE.setEnabled(false);
+            bt_stopRNE.setEnabled(false);
+            bt_playRNE.setEnabled(true);
             playSeekBar.setVisibility(View.INVISIBLE);
             stopplaying();
         }
@@ -111,7 +111,7 @@ public class radioplayer extends AppCompatActivity implements View.OnClickListen
         mediaPlayerRNE.setOnBufferingUpdateListener(new OnBufferingUpdateListener() {
             public void onBufferingUpdate(MediaPlayer mp, int percent) {
                 playSeekBar.setSecondaryProgress(percent);
-                Log.i("Buffering", "Cargando transmision" + percent);
+                Log.i("Buffering", "" + percent);
             }
         });
     }
@@ -138,11 +138,7 @@ public class radioplayer extends AppCompatActivity implements View.OnClickListen
             Toast.makeText(this, "Version de la aplicacion: 1.0.2020",Toast.LENGTH_LONG).show();
             return true;
         }
-        if (id==R.id.salir_it){
-            Toast.makeText(this, "Gracias por utilizar la aplicacion",Toast.LENGTH_LONG).show();
-            finish();
-            return true;
-        }
+
         return  super.onOptionsItemSelected(item);
     }
 

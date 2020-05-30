@@ -59,8 +59,8 @@ public class rp_cadena100 extends AppCompatActivity implements View.OnClickListe
     }
     public void stop3 (View v){
         if (btstop100.isClickable()){
-            btstop100.setEnabled(true);
-            btplay100.setEnabled(false);
+            btstop100.setEnabled(false);
+            btplay100.setEnabled(true);
             play_BarC100.setVisibility(View.INVISIBLE);
             detener3();
         }
@@ -106,7 +106,7 @@ public class rp_cadena100 extends AppCompatActivity implements View.OnClickListe
         mediaplayC100.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
             public void onBufferingUpdate(MediaPlayer mp1, int percent) {
                 play_BarC100.setSecondaryProgress(percent);
-                Log.i("Buffering", "Cargando transmision" + percent);
+                Log.i("Buffering", "" + percent);
             }
         });
     }
@@ -133,11 +133,7 @@ public class rp_cadena100 extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "Version de la aplicacion: 1.0.2020",Toast.LENGTH_LONG).show();
             return true;
         }
-        if (id==R.id.salir_it){
-            Toast.makeText(this, "Gracias por utilizar la aplicacion",Toast.LENGTH_LONG).show();
-            finish();
-            return true;
-        }
+
         return  super.onOptionsItemSelected(item);
     }
 }

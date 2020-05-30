@@ -64,8 +64,8 @@ public class rp_Los40CL extends AppCompatActivity implements View.OnClickListene
     }
     public void stop (View v){
         if (btsop40.isClickable()){
-            btsop40.setEnabled(true);
-            btplay40.setEnabled(false);
+            btsop40.setEnabled(false);
+            btplay40.setEnabled(true);
             play_Bar40cl.setVisibility(View.INVISIBLE);
             detener();
         }
@@ -111,7 +111,7 @@ public class rp_Los40CL extends AppCompatActivity implements View.OnClickListene
         mediaplay40cl.setOnBufferingUpdateListener(new OnBufferingUpdateListener() {
             public void onBufferingUpdate(MediaPlayer mp1, int percent) {
                 play_Bar40cl.setSecondaryProgress(percent);
-                Log.i("Buffering", "Cargando transmision" + percent);
+                Log.i("Buffering", "" + percent);
             }
         });
     }
@@ -138,11 +138,7 @@ public class rp_Los40CL extends AppCompatActivity implements View.OnClickListene
             Toast.makeText(this, "Version de la aplicacion: 1.0.2020",Toast.LENGTH_LONG).show();
             return true;
         }
-        if (id==R.id.salir_it){
-            Toast.makeText(this, "Gracias por utilizar la aplicacion",Toast.LENGTH_LONG).show();
-            finish();
-            return true;
-        }
+
         return  super.onOptionsItemSelected(item);
     }
 }

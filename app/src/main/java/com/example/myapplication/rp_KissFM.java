@@ -61,8 +61,8 @@ public class rp_KissFM extends AppCompatActivity implements View.OnClickListener
     }
     public void stop (View v){
         if (btstopKiss.isClickable()){
-            btstopKiss.setEnabled(true);
-            btplayKiss.setEnabled(false);
+            btstopKiss.setEnabled(false);
+            btplayKiss.setEnabled(true);
             play_BarKissFM.setVisibility(View.INVISIBLE);
             detener();
         }
@@ -107,7 +107,7 @@ public class rp_KissFM extends AppCompatActivity implements View.OnClickListener
         mediaplayKissFM.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
             public void onBufferingUpdate(MediaPlayer mp1, int percent) {
                 play_BarKissFM.setSecondaryProgress(percent);
-                Log.i("Buffering", "Cargando transmision" + percent);
+                Log.i("Buffering", "" + percent);
             }
         });
     }
@@ -133,11 +133,7 @@ public class rp_KissFM extends AppCompatActivity implements View.OnClickListener
             Toast.makeText(this, "Version de la aplicacion: 1.0.2020",Toast.LENGTH_LONG).show();
             return true;
         }
-        if (id==R.id.salir_it){
-            Toast.makeText(this, "Gracias por utilizar la aplicacion",Toast.LENGTH_LONG).show();
-            finish();
-            return true;
-        }
+
         return  super.onOptionsItemSelected(item);
     }
 }

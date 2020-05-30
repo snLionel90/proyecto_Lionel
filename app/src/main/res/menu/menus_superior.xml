@@ -2,9 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/salir_it"
-        android:title="@string/salir_item" />
-    <item
         android:id="@+id/item_salir"
         android:title="@string/item1" />
     <item
