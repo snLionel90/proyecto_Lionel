@@ -22,7 +22,6 @@ public class iinicios_de_la_radio extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_iinicios_de_la_radio);
         retroceso = findViewById(R.id.buttonRegresar);
-
         tv1 = findViewById(R.id.textViewTitulo);
         tv2 = findViewById(R.id.textViewtextoPrimeros);
         retroceso.setOnClickListener(this);
@@ -36,7 +35,6 @@ public class iinicios_de_la_radio extends AppCompatActivity implements View.OnCl
             startActivity(intent_index);
         }
     }
-
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menus_superior,menu);

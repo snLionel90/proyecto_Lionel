@@ -111,7 +111,7 @@ public class radioplayer extends AppCompatActivity implements View.OnClickListen
         mediaPlayerRNE.setOnBufferingUpdateListener(new OnBufferingUpdateListener() {
             public void onBufferingUpdate(MediaPlayer mp, int percent) {
                 playSeekBar.setSecondaryProgress(percent);
-                Log.i("Buffering", "" + percent);
+                Log.i("Buffering", "Cargando transmision" + percent);
             }
         });
     }

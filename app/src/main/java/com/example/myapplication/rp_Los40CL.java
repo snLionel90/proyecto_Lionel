@@ -111,7 +111,7 @@ public class rp_Los40CL extends AppCompatActivity implements View.OnClickListene
         mediaplay40cl.setOnBufferingUpdateListener(new OnBufferingUpdateListener() {
             public void onBufferingUpdate(MediaPlayer mp1, int percent) {
                 play_Bar40cl.setSecondaryProgress(percent);
-                Log.i("Buffering", "" + percent);
+                Log.i("Buffering", "Cargando transmision" + percent);
             }
         });
     }

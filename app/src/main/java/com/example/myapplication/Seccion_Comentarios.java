@@ -53,7 +53,6 @@ public class Seccion_Comentarios extends AppCompatActivity {
             Intent intent_index  = new Intent(this, acceso_datos.class);
             startActivity(intent_index);
         }
-
     }
     public void atras(View v){
         if (btatras.isClickable()){

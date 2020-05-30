@@ -106,7 +106,7 @@ public class rp_cadena100 extends AppCompatActivity implements View.OnClickListe
         mediaplayC100.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
             public void onBufferingUpdate(MediaPlayer mp1, int percent) {
                 play_BarC100.setSecondaryProgress(percent);
-                Log.i("Buffering", "" + percent);
+                Log.i("Buffering", "Cargando transmision" + percent);
             }
         });
     }

@@ -107,7 +107,7 @@ public class rp_KissFM extends AppCompatActivity implements View.OnClickListener
         mediaplayKissFM.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
             public void onBufferingUpdate(MediaPlayer mp1, int percent) {
                 play_BarKissFM.setSecondaryProgress(percent);
-                Log.i("Buffering", "" + percent);
+                Log.i("Buffering", "Cargando transmision" + percent);
             }
         });
     }

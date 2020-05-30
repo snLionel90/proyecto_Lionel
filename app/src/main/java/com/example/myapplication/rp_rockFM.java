@@ -108,7 +108,7 @@ public class rp_rockFM extends AppCompatActivity implements View.OnClickListener
         mediaplayRockFM.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
             public void onBufferingUpdate(MediaPlayer mp1, int percent) {
                 play_BarR.setSecondaryProgress(percent);
-                Log.i("Buffering", "" + percent);
+                Log.i("Buffering", "Cargando transmision" + percent);
             }
         });
     }

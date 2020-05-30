@@ -77,7 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/alert_light_frame"
-                 />
+                android:onClick="stop" />
 
             <Button
                 android:id="@+id/bt_playMelodia"
@@ -90,7 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/ic_menu_revert"
-                />
+                android:onClick="regreso" />
 
             <Button
                 android:id="@+id/buttonWebMelodiaFM"
@@ -98,6 +98,7 @@
                 android:layout_height="wrap_content"
                 android:background="@android:drawable/ic_menu_info_details"
 
+                android:onClick="ir_webMelodiaFM"
                 android:text="@string/masInfo" />
         </TableRow>
 
