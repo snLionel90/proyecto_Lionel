@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -38,22 +39,28 @@ import java.util.Map;
 public class acceso_datos extends AppCompatActivity {
     EditText ed_introducirNombre;
     Button bt_buscar,bt_regresar;
-    ListView listaResultado;
-    String IP_servidor ="http://192.168.1.133:8080/DBradio/buscar_emiosras.php";
+    TextView id_emisora,tvnombre,tvciudad,tvstream,tvdato;
+    RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acceso_datos);
         ed_introducirNombre = findViewById(R.id.editTextbuscar_emisora);
-        listaResultado = findViewById(R.id.listaresultados);
+        id_emisora = findViewById(R.id.textViewIDemisora);
+        tvnombre = findViewById(R.id.textViewNOmbreEmisora);
+        tvciudad = findViewById(R.id.textViewCiudadE);
+        tvstream = findViewById(R.id.textViewDirStream);
+        tvdato = findViewById(R.id.textViewlosDatos);
+
         bt_buscar  = findViewById(R.id.buttonBuscar);
         bt_regresar = findViewById(R.id.buttonretro);
 
         bt_buscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buscarEmisora(IP_servidor+ed_introducirNombre.getText()+"");
+                String IP_servidor ="http://192.168.1.133:8080/DBradio/buscar_emiosras.php?ID_emisora="+ed_introducirNombre+"";
+                buscarEmisora(IP_servidor);
             }
         });
     }
@@ -67,42 +74,34 @@ public class acceso_datos extends AppCompatActivity {
     private void buscarEmisora (String IP)
     {
         Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
-        RequestQueue queue = Volley.newRequestQueue(this);
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, IP, new Response.Listener<String>() {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(IP, new Response.Listener<JSONArray>() {
             @Override
-            public void onResponse(String response) {
-                response = response.replace("][",",");
-                if (response.length()>0){
+            public void onResponse(JSONArray response) {
+                JSONObject jsonObject = null;
+                for (int i = 0; i < response.length(); i++) {
                     try {
-                        JSONArray ja = new JSONArray(response);
-                        Log.i("sizejson",""+ja.length());
-                        ver_datos_consulta(ja);
+                        jsonObject = response.getJSONObject(i);
+                        id_emisora.setText(jsonObject.getString("ID_emisora"));
+                        tvnombre.setText(jsonObject.getString("nombre_emisora"));
+                        tvciudad.setText(jsonObject.getString("ciudad"));
+                        tvstream.setText(jsonObject.getString("stream"));
+                        tvdato.setText(jsonObject.getString("datos_id_"));
+
                     } catch (JSONException e) {
-                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }
-        }, new Response.ErrorListener(){
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-        queue.add(stringRequest);
+        requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(jsonArrayRequest);
     }
 
-    private void ver_datos_consulta(JSONArray ja) {
-        ArrayList<String> lista = new ArrayList<>();
-        for(int i=0;i<ja.length();i+=4){
-            try {
-
-                lista.add(ja.getString(i)+" "+ja.getString(i+1)+" "+ja.getString(i+2)+" "+ja.getString(i+3));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, lista);
-        listaResultado.setAdapter(adaptador);
-    }
 
     //AREA PARA EL MENU ACTION BAR
     public boolean onCreateOptionsMenu(Menu menu){

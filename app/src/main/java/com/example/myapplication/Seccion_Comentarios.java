@@ -28,7 +28,8 @@ public class Seccion_Comentarios extends AppCompatActivity {
     TextView titleComent;
     EditText Ed_nombre,Ed_apellido,Ed_edad,Ed_comentario;
     Button btnEnviar,btverdatos,btatras;
-    String GET = "http://192.168.1.133:8080/DBradio/insertar_usuarios.php";
+
+    RequestQueue requestQueue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +45,8 @@ public class Seccion_Comentarios extends AppCompatActivity {
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ejecutarServicio(GET);
+                String ipServer = "http://192.168.1.133:8080/DBradio/insertar_usuarios.php";
+                ejecutarServicio(ipServer);
             }
         });
     }
@@ -84,7 +86,7 @@ public class Seccion_Comentarios extends AppCompatActivity {
             }
         };
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
     //AREA PARA EL MENU ACTION BAR

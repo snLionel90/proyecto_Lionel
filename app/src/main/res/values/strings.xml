@@ -41,7 +41,7 @@
     <string name="ed_edad">introduzca su edad</string>
     <string name="ed_apellido">introduzca su apellido</string>
     <string name="vt_verCom">Ver datos</string>
-    <string name="bd_titulo">Para Buscar informacion de una emisora en concreto, introduzca en nombre y pulse buscar</string>
+    <string name="bd_titulo">Para Buscar informacion de una emisora en concreto, introduzca un numero del 1 al 10 y pulse buscar</string>
     <string name="bt_buscar">Buscar</string>
     <string name="tv_buscar">Para Buscar informacion de una emisora en concreto, pulse el boton ver datos</string>
 
@@ -49,5 +49,12 @@
     <string name="ed_ciudad">Ciudad</string>
     <string name="ed_direccion_Stream">direccion</string>
     <string name="ed_comentario_usuario"> </string>
+
+    <string name="idemisora">ID Emisora</string>
+    <string name="nom_emisora">Nombre</string>
+    <string name="ciudad_emisora">Ciudad</string>
+    <string name="dir_stream">Direccion Stream</string>
+    <string name="iddatos">ID datos</string>
+
 
 </resources>

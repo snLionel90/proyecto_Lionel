@@ -12,6 +12,7 @@
         android:layout_height="729dp"
         android:layout_marginStart="26dp"
         android:layout_marginLeft="26dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="29dp"
         android:layout_marginRight="29dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,16 +24,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/buttonVolver"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:background="@android:drawable/ic_menu_revert"
-                android:onClick="atras"
-                android:text="@string/b4" />
-
             <TextView
                 android:id="@+id/textViewTituloComentarios"
                 android:layout_width="match_parent"
@@ -40,7 +31,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/tit_comentarios"
-                android:textSize="18sp" />
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/editTextNombre"
@@ -72,46 +63,54 @@
             <EditText
                 android:id="@+id/editTextComentario"
                 android:layout_width="match_parent"
-                android:layout_height="58dp"
+                android:layout_height="108dp"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/ed_cometario"
                 android:inputType="textPersonName" />
 
-            <Button
-                android:id="@+id/buttonSend"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="70dp"
-                android:layout_marginEnd="70dp"
-                android:background="@android:drawable/ic_menu_send"
-                android:text="@string/bt_enviarCom" />
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/buttonSend"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:drawable/ic_menu_send"
+                        android:text="@string/bt_enviarCom" />
+
+                    <Button
+                        android:id="@+id/buttonVolver"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:drawable/ic_menu_revert"
+                        android:onClick="atras"
+                        android:text="@string/b4" />
+
+                </TableRow>
+
+            </TableLayout>
 
             <TextView
-                android:id="@+id/textViewInfoBuscar"
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="22dp"
-                android:layout_marginRight="22dp"
-                android:text="@string/tv_buscar"
-                android:textSize="18sp" />
+                android:text="@string/tv_buscar" />
 
             <Button
                 android:id="@+id/buttonVerCom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="70dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginEnd="42dp"
                 android:onClick="verdatos"
                 android:text="@string/vt_verCom"
-                app:layout_constraintEnd_toEndOf="@id/textViewInfoBuscar"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewInfoBuscar" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
         </LinearLayout>
     </ScrollView>

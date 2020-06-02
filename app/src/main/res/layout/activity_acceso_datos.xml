@@ -37,30 +37,122 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:textColor="#FFFFFF" />
+                android:inputType="number" />
 
-            <Button
-                android:id="@+id/buttonBuscar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@android:drawable/ic_menu_search"
-                android:text="@string/bt_buscar" />
-
-            <ListView
-                android:id="@+id/listaresultados"
+            <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content">
 
-            <Button
-                android:id="@+id/buttonretro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@android:drawable/ic_menu_revert"
-                android:onClick="volver_comentarios"
-                android:text="@string/b4" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/buttonBuscar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:drawable/ic_menu_search"
+                        android:text="@string/bt_buscar" />
+
+                    <Button
+                        android:id="@+id/buttonretro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:drawable/ic_menu_revert"
+                        android:onClick="volver_comentarios"
+                        android:text="@string/b4" />
+
+                </TableRow>
+
+            </TableLayout>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:id="@+id/textViewA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/idemisora"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textViewIDemisora"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textViewB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nom_emisora"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textViewNOmbreEmisora"
+                    android:layout_width="231dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:id="@+id/textViewC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ciudad_emisora"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textViewCiudadE"
+                    android:layout_width="308dp"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:id="@+id/textViewD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dir_stream"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textViewDirStream"
+                    android:layout_width="223dp"
+                    android:layout_height="wrap_content" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:id="@+id/textViewE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/iddatos"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textViewlosDatos"
+                    android:layout_width="297dp"
+                    android:layout_height="wrap_content" />
+            </TableRow>
 
         </LinearLayout>
     </ScrollView>
