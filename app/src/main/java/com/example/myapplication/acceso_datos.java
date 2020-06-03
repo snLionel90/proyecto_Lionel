@@ -39,8 +39,9 @@ import java.util.Map;
 public class acceso_datos extends AppCompatActivity {
     EditText ed_introducirNombre;
     Button bt_buscar,bt_regresar;
-    TextView id_emisora,tvnombre,tvciudad,tvstream,tvdato;
+    TextView id_emisora,tvnombre,tvciudad,tvstream;
     RequestQueue requestQueue;
+    String datosConsulta="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,15 +52,13 @@ public class acceso_datos extends AppCompatActivity {
         tvnombre = findViewById(R.id.textViewNOmbreEmisora);
         tvciudad = findViewById(R.id.textViewCiudadE);
         tvstream = findViewById(R.id.textViewDirStream);
-        tvdato = findViewById(R.id.textViewlosDatos);
-
         bt_buscar  = findViewById(R.id.buttonBuscar);
         bt_regresar = findViewById(R.id.buttonretro);
 
         bt_buscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String IP_servidor ="http://192.168.1.133:8080/DBradio/buscar_emiosras.php?ID_emisora="+ed_introducirNombre+"";
+                String IP_servidor ="http://192.168.1.133:8080/DBradio/buscar_emiosras.php?ID_emisora=" +ed_introducirNombre.getText()+"";
                 buscarEmisora(IP_servidor);
             }
         });
@@ -73,23 +72,26 @@ public class acceso_datos extends AppCompatActivity {
 
     private void buscarEmisora (String IP)
     {
-        Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(IP, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 JSONObject jsonObject = null;
-                for (int i = 0; i < response.length(); i++) {
-                    try {
-                        jsonObject = response.getJSONObject(i);
-                        id_emisora.setText(jsonObject.getString("ID_emisora"));
-                        tvnombre.setText(jsonObject.getString("nombre_emisora"));
-                        tvciudad.setText(jsonObject.getString("ciudad"));
-                        tvstream.setText(jsonObject.getString("stream"));
-                        tvdato.setText(jsonObject.getString("datos_id_"));
+                try{
+                    for (int i = 0; i < response.length(); i++) {
+                        try {
+                            jsonObject = response.getJSONObject(i);
+                            id_emisora.setText(jsonObject.getString("ID_emisora"));
+                            tvnombre.setText(jsonObject.getString("nombre_emisora"));
+                            tvciudad.setText(jsonObject.getString("ciudad"));
+                            tvstream.setText(jsonObject.getString("stream"));
 
-                    } catch (JSONException e) {
-                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        } catch (JSONException e) {
+                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
                     }
+                }catch (Exception e){
+                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {

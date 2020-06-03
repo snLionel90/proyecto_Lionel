@@ -81,7 +81,8 @@
                     android:id="@+id/textViewIDemisora"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textSize="18sp" />
+                    android:gravity="center"
+                    android:textSize="14sp" />
             </TableRow>
 
             <TableRow
@@ -97,9 +98,10 @@
 
                 <TextView
                     android:id="@+id/textViewNOmbreEmisora"
-                    android:layout_width="231dp"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp" />
+                    android:gravity="center"
+                    android:textSize="14sp" />
             </TableRow>
 
             <TableRow
@@ -116,7 +118,9 @@
                 <TextView
                     android:id="@+id/textViewCiudadE"
                     android:layout_width="308dp"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="14sp" />
             </TableRow>
 
             <TableRow
@@ -126,32 +130,18 @@
                 <TextView
                     android:id="@+id/textViewD"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
                     android:text="@string/dir_stream"
                     android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/textViewDirStream"
-                    android:layout_width="223dp"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="match_parent"
+                    android:layout_height="106dp"
+                    android:gravity="center"
+                    android:textSize="14sp" />
 
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <TextView
-                    android:id="@+id/textViewE"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/iddatos"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/textViewlosDatos"
-                    android:layout_width="297dp"
-                    android:layout_height="wrap_content" />
             </TableRow>
 
         </LinearLayout>
