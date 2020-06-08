@@ -11,11 +11,11 @@ En el repositorio se incluye:
 
 -El servidor de la BD es 192.168.1.133:8080
 
-Enlce al video de la presentacion : https://youtu.be/yHlOoYKhdF0
+Enlce al video de la presentacion : https://youtu.be/q-f4uDTZGsw
 
 Plataforma: YouTube (Oculto)
 
-Tamaño: 266MB
+Tamaño: 392MB
 
 Duracion: 19:15
 
